@@ -1,17 +1,29 @@
 # Agent Guidelines
 
-## About this repo
-
-This repo starts life as an Elixir project *template*: infrastructure only, no
-mix project. If there is no `mix.exs` yet, the project hasn't been bootstrapped —
-see README.md for the bootstrap steps, and don't try to run mix tasks.
-Once bootstrapped, delete this paragraph and fill in the "Project overview"
-section below.
-
 ## Project overview
 
-<!-- After bootstrap: one paragraph on what this app does, plus anything
-     non-obvious about its architecture (umbrella? Phoenix? OTP apps?). -->
+Pudding is an Elixir security verification toolkit that integrates with Mix to
+discover security properties, find counterexamples, and generate independently
+checked formal proofs tied to actual implementations. It is built on precise
+execution semantics and a growing collection of reusable lemmas and verified
+library contracts, with the aim of making increasingly complex code practical
+to verify. The long-term goal is autonomous analysis and patch generation, with
+incremental verification in CI and explicit reporting of what is proved,
+assumed, unsupported, or unknown.
+
+It's a library (`mix new`, no supervision tree): other projects pull it in as a
+dependency and drive it through Mix. If it grows long-lived processes (solver
+or checker pools, caches for incremental runs), add an `Application` module
+deliberately rather than starting processes ad hoc.
+
+[`reach`](https://hexdocs.pm/reach) (program dependence graphs) is a
+**test-only** dependency. Tests may use it; `lib/` code must not. `precommit`
+and CI both run under `MIX_ENV=test`, so a `Reach` call in `lib/` would pass
+every check and then fail for anyone using Pudding outside its own test suite.
+
+Those four result categories are a contract, not a formatting choice. Code that
+can't establish a property must say so — never let an unhandled case, a
+timeout, or an unsupported construct fall through to "proved".
 
 ## Commands
 
@@ -33,10 +45,10 @@ means a green PR.
 | Type check (slow; runs in CI, not in `precommit`) | `mix dialyzer` |
 | Dependency vulnerabilities | `mix deps.audit` |
 | Retired packages | `mix hex.audit` |
-| Phoenix security scan | `mix sobelow --exit --skip` |
 | Refresh AGENTS.md usage rules | `mix usage_rules.sync --yes` |
 | Check those rules are current | `mix usage_rules.sync --check` |
 | Search dependency docs | `mix usage_rules.search_docs "term" -p package` |
+| Start the Tidewave MCP server (dev, port 4000) | `mix tidewave` |
 
 Some of these only exist once the matching dep is installed; the `precommit`
 alias in `mix.exs` is the authoritative list for this project.
@@ -77,24 +89,13 @@ alias in `mix.exs` is the authoritative list for this project.
   referencing a struct at compile time across a context boundary.
 - **Don't edit generated or vendored files** (`deps/`, `_build/`,
   `priv/static/assets/`, migration files that have already shipped).
-- **If this repo has both `.github/workflows/` and `.forgejo/workflows/`,
-  they are not copies.** The Forgejo one installs the BEAM by hand, references
-  actions by full URL, and reaches services by container name — every
-  difference is deliberate and documented in README.md. When you change one
-  pipeline, decide consciously whether the other needs the same change; don't
-  mirror it mechanically. Note that `actionlint` cannot check the Forgejo file,
-  so verify edits there by hand.
 
 ## Framework and library guidelines
 
-Generators — notably `mix phx.new` — ship their own `AGENTS.md`. On bootstrap
-its guidance is merged into *this* file rather than left as a competing second
-file: framework-specific rules go in a section below the conventions above,
-and the machine-generated block goes at the bottom.
-
-Anything between the `<!-- usage-rules-start -->` and `<!-- usage-rules-end -->`
-markers at the end of this file is **generated from the installed
-dependencies** by `mix usage_rules.sync`. Never hand-edit inside those markers:
+Anything between the `usage-rules-start` and `usage-rules-end` comment markers
+at the end of this file is **generated from the installed dependencies** by
+`mix usage_rules.sync`. (Don't quote those markers verbatim in prose here: the
+task finds the block by string-matching them, and a quoted copy breaks it.) Never hand-edit inside those markers:
 the next sync overwrites it, and CI fails when the block is out of date. Put
 your own guidance above the markers instead. After changing dependencies, run
 `mix usage_rules.sync --yes` and commit the result.
@@ -107,3 +108,139 @@ non-interactive shell. Always pass `--yes` (write the changes) or `--check`
 
 Erlang/Elixir versions are pinned in `.tool-versions` (used by asdf/mise
 locally and by `erlef/setup-beam` in CI). Bump versions there, nowhere else.
+
+<!-- usage-rules-start -->
+<!-- usage_rules-start -->
+## usage_rules usage
+_A config-driven dev tool for Elixir projects to manage AGENTS.md files and agent skills from dependencies_
+
+## Using Usage Rules
+
+Many packages have usage rules, which you should *thoroughly* consult before taking any
+action. These usage rules contain guidelines and rules *directly from the package authors*.
+They are your best source of knowledge for making decisions.
+
+## Modules & functions in the current app and dependencies
+
+When looking for docs for modules & functions that are dependencies of the current project,
+or for Elixir itself, use `mix usage_rules.docs`
+
+```
+# Search a whole module
+mix usage_rules.docs Enum
+
+# Search a specific function
+mix usage_rules.docs Enum.zip
+
+# Search a specific function & arity
+mix usage_rules.docs Enum.zip/1
+```
+
+
+## Searching Documentation
+
+You should also consult the documentation of any tools you are using, early and often. The best 
+way to accomplish this is to use the `usage_rules.search_docs` mix task. Once you have
+found what you are looking for, use the links in the search results to get more detail. For example:
+
+```
+# Search docs for all packages in the current application, including Elixir
+mix usage_rules.search_docs Enum.zip
+
+# Search docs for specific packages
+mix usage_rules.search_docs Req.get -p req
+
+# Search docs for multi-word queries
+mix usage_rules.search_docs "making requests" -p req
+
+# Search only in titles (useful for finding specific functions/modules)
+mix usage_rules.search_docs "Enum.zip" --query-by title
+```
+
+
+<!-- usage_rules-end -->
+<!-- usage_rules:elixir-start -->
+## usage_rules:elixir usage
+# Elixir Core Usage Rules
+
+## Pattern Matching
+- Use pattern matching over conditional logic when possible
+- Prefer to match on function heads instead of using `if`/`else` or `case` in function bodies
+- `%{}` matches ANY map, not just empty maps. Use `map_size(map) == 0` guard to check for truly empty maps
+
+## Error Handling
+- Use `{:ok, result}` and `{:error, reason}` tuples for operations that can fail
+- Avoid raising exceptions for control flow
+- Use `with` for chaining operations that return `{:ok, _}` or `{:error, _}`
+
+## Common Mistakes to Avoid
+- Elixir has no `return` statement, nor early returns. The last expression in a block is always returned.
+- Don't use `Enum` functions on large collections when `Stream` is more appropriate
+- Avoid nested `case` statements - refactor to a single `case`, `with` or separate functions
+- Don't use `String.to_atom/1` on user input (memory leak risk)
+- Lists and enumerables cannot be indexed with brackets. Use pattern matching or `Enum` functions
+- Prefer `Enum` functions like `Enum.reduce` over recursion
+- When recursion is necessary, prefer to use pattern matching in function heads for base case detection
+- Using the process dictionary is typically a sign of unidiomatic code
+- Only use macros if explicitly requested
+- There are many useful standard library functions, prefer to use them where possible
+
+## Function Design
+- Use guard clauses: `when is_binary(name) and byte_size(name) > 0`
+- Prefer multiple function clauses over complex conditional logic
+- Name functions descriptively: `calculate_total_price/2` not `calc/2`
+- Predicate function names should not start with `is` and should end in a question mark.
+- Names like `is_thing` should be reserved for guards
+
+## Data Structures
+- Use structs over maps when the shape is known: `defstruct [:name, :age]`
+- Prefer keyword lists for options: `[timeout: 5000, retries: 3]`
+- Use maps for dynamic key-value data
+- Prefer to prepend to lists `[new | list]` not `list ++ [new]`
+
+## Mix Tasks
+
+- Use `mix help` to list available mix tasks
+- Use `mix help task_name` to get docs for an individual task
+- Read the docs and options fully before using tasks
+
+## Testing
+- Run tests in a specific file with `mix test test/my_test.exs` and a specific test with the line number `mix test path/to/test.exs:123`
+- Limit the number of failed tests with `mix test --max-failures n`
+- Use `@tag` to tag specific tests, and `mix test --only tag` to run only those tests
+- Use `assert_raise` for testing expected exceptions: `assert_raise ArgumentError, fn -> invalid_function() end`
+- Use `mix help test` to for full documentation on running tests
+
+## Debugging
+
+- Use `dbg/1` to print values while debugging. This will display the formatted value and other relevant information in the console.
+
+<!-- usage_rules:elixir-end -->
+<!-- usage_rules:otp-start -->
+## usage_rules:otp usage
+# OTP Usage Rules
+
+## GenServer Best Practices
+- Keep state simple and serializable
+- Handle all expected messages explicitly
+- Use `handle_continue/2` for post-init work
+- Implement proper cleanup in `terminate/2` when necessary
+
+## Process Communication
+- Use `GenServer.call/3` for synchronous requests expecting replies
+- Use `GenServer.cast/2` for fire-and-forget messages.
+- When in doubt, use `call` over `cast`, to ensure back-pressure
+- Set appropriate timeouts for `call/3` operations
+
+## Fault Tolerance
+- Set up processes such that they can handle crashing and being restarted by supervisors
+- Use `:max_restarts` and `:max_seconds` to prevent restart loops
+
+## Task and Async
+- Use `Task.Supervisor` for better fault tolerance
+- Handle task failures with `Task.yield/2` or `Task.shutdown/2`
+- Set appropriate task timeouts
+- Use `Task.async_stream/3` for concurrent enumeration with back-pressure
+
+<!-- usage_rules:otp-end -->
+<!-- usage-rules-end -->
