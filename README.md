@@ -12,6 +12,9 @@ reporting of what is **proved**, **assumed**, **unsupported**, or **unknown**.
 
 > Status: early development. There is no stable API yet.
 
+The [implementation plan](implementation/README.md) organizes the work into ordered
+phases for dedicated agent runs, with validation gates and handoff requirements.
+
 ## Development
 
 Erlang and Elixir versions are pinned in [`.tool-versions`](https://github.com/houllette/pudding/blob/main/.tool-versions);
