@@ -1,8 +1,11 @@
 # Phase 01 — Qualify the pinned Lynx foundation
 
-**State:** Not started.
+**State:** Complete. **Gate:** Passed on Linux ARM64; see
+[HANDOFF.md](HANDOFF.md) and the
+[retained run manifest](../../proof/foundation/evidence/linux-arm64-2026-11-16/MANIFEST.md).
 
-**Depends on:** No implementation phase; explicit dependency and budget approvals remain required.
+**Depends on:** No implementation phase. Owner approved the pinned Git dependency,
+Lean toolchain, and uncapped cumulative phases 01–03 budget before implementation.
 
 **Next:** [02 — Freeze the policy and ordinary consumer fixtures](../02-contracts-and-fixtures/README.md).
 
@@ -48,14 +51,14 @@ trust/license manifest, logs, and the initial effort ledger.
 
 ## Validation and handoff gate
 
-- [ ] Exact Pudding pins and pinned Lynx/toolchain build in a clean consumer;
+- [x] Exact Pudding pins and pinned Lynx/toolchain build in a clean consumer;
   actual invoked versions and transitive inputs are retained.
-- [ ] The small true law verifies; its false control fails for the intended reason.
-- [ ] A fresh export independently rechecks under the recorded axiom policy and
+- [x] The small true law verifies; its false control fails for the intended reason.
+- [x] A fresh export independently rechecks under the recorded axiom policy and
   enforced environment. Missing checker tooling remains a blocker.
-- [ ] Trust inventory distinguishes logical checking from translation and BEAM
+- [x] Trust inventory distinguishes logical checking from translation and BEAM
   correspondence; sandbox claims have executable checks and explicit limits.
-- [ ] Dependency approval, licenses, reproducible bootstrap, and phase 01–03
+- [x] Dependency approval, licenses, reproducible bootstrap, and phase 01–03
   budget/effort accounting are recorded; `mix precommit` passes.
 
 Write `HANDOFF.md` using the [template](../HANDOFF_TEMPLATE.md), with exact

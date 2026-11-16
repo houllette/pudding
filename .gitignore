@@ -2,6 +2,8 @@
 /_build/
 /cover/
 /deps/
+/test/fixtures/projects/*/_build/
+/test/fixtures/projects/*/deps/
 /doc/
 /.fetch
 

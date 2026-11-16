@@ -1,0 +1,82 @@
+[
+    {
+        "Id": "sha256:a9a8fdbf73d3b787505b55a6f366959aca929725da359abd0b400c2b1b2a3758",
+        "RepoTags": [
+            "docker.io/library/pudding-foundation:phase01"
+        ],
+        "RepoDigests": [
+            "docker.io/library/pudding-foundation@sha256:adb04a68311ce73be23c8ddcfc2b779b204008fc07de7cffa868635165bee9a1"
+        ],
+        "Created": "2026-11-16T21:34:56.125463523Z",
+        "Config": {
+            "User": "1000:1000",
+            "Env": [
+                "PATH=/opt/lean/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "LANG=C.UTF-8",
+                "MIX_ARCHIVES=/opt/mix/archives",
+                "HOME=/scratch/home",
+                "MIX_HOME=/scratch/home/.mix",
+                "HEX_HOME=/scratch/home/.hex",
+                "MIX_ENV=prod",
+                "ERL_FLAGS=+S 4:4"
+            ],
+            "Cmd": [
+                "/bin/bash"
+            ],
+            "WorkingDir": "/scratch",
+            "Labels": {
+                "org.opencontainers.image.version": "24.04"
+            }
+        },
+        "Architecture": "arm64",
+        "Os": "linux",
+        "Size": 4100844597,
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/containers/storage/overlay/1af0a08fac71dbbcb3f64da4f655960cd68224fcd639da2221a7f76838020b49/diff:/var/lib/containers/storage/overlay/9add4676980095303e5300b58494c2cf0a2e663daedaf5914018d4a56850b4b8/diff:/var/lib/containers/storage/overlay/ea518993f4cf3d62a76b2c01d13757b60b73797c848dbde6644e6e8579125b1b/diff:/var/lib/containers/storage/overlay/d9f1fdc172c4a03677732529fcd0c50a32c5eaa80a0513552109502e841e8b5a/diff:/var/lib/containers/storage/overlay/abae1f9b0c53b167b3c64ac726409135a6817b7331d992bf9d643b53bf30d01e/diff:/var/lib/containers/storage/overlay/be39748f6422c03538ba5a47a8f98894cf63f679dfb81573694fa5cd71e1618f/diff:/var/lib/containers/storage/overlay/f1a6d856dd0c7be3a07986a453ce24e9c468712cc9db5614c7ad250b8b953a21/diff:/var/lib/containers/storage/overlay/9e1930243332aa150986048644e12b71fe3bef1d17bc5fd8428192d6d20b0407/diff:/var/lib/containers/storage/overlay/2d8834226313616cc27c8a08ca876096cf83f18090b5fa07fd65dba017ec9e5e/diff",
+                "UpperDir": "/var/lib/containers/storage/overlay/20114224db83f097ce6ad2d41b057276cc2414b2d7691cc4755a392d40fe46bb/diff",
+                "WorkDir": "/var/lib/containers/storage/overlay/20114224db83f097ce6ad2d41b057276cc2414b2d7691cc4755a392d40fe46bb/work"
+            },
+            "Name": "overlay"
+        },
+        "RootFS": {
+            "Type": "layers",
+            "Layers": [
+                "sha256:2d8834226313616cc27c8a08ca876096cf83f18090b5fa07fd65dba017ec9e5e",
+                "sha256:f685f79c3478a5b43f03afee9414f17e7015b751d40c82a6fabc1b239c6e6f1e",
+                "sha256:76ecebfe0a9a3ff982a5718ace55e2cf384d367ebad67b0560b86ab9d2a8f522",
+                "sha256:0fcc4d3fa2d806af92404557c0984303b708c957488e66855d9b12dc1ac70bb8",
+                "sha256:0236062757b2843c65e4d96950d987d8221d0cfdc9dd3f2879dccbb06b57080d",
+                "sha256:8a119c91039a17f518e0ea78bdf15bbed732a14d8ebdb4b126925ce528493dbb",
+                "sha256:80e527ae98379092a34ba2c38601ec4b7b5ff289d98d272ea79a7973ed1beeee",
+                "sha256:2d3cef650c5fdc3818b9cb6c37f1faf8644d9ff93e1ce4b6ef32ea6ee795a504",
+                "sha256:ccdc9bee82bcfbe42be5f015de4bbb2e7d19a759333fd6fca2ea442ce19557ba",
+                "sha256:8750cb5c3af992ce616db604e6f06ffa5ef2d9b9c3b868724f17a919b37cad35"
+            ]
+        },
+        "Metadata": {
+            "LastTagTime": "0001-01-01T00:00:00Z"
+        },
+        "ContainerConfig": {
+            "Hostname": "a9a8fdbf73d",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": null,
+            "Cmd": null,
+            "Image": "",
+            "Volumes": null,
+            "WorkingDir": "",
+            "Entrypoint": null,
+            "Labels": null
+        },
+        "Parent": "",
+        "DockerVersion": "",
+        "Author": ""
+    }
+]

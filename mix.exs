@@ -11,6 +11,15 @@ defmodule Pudding.MixProject do
       elixir: "~> 1.20",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
+      # Nested Mix consumers own their tests (and may have their own deps/tests).
+      # Mix's load filters override ignore filters, so exclude fixtures in both.
+      test_load_filters: [
+        fn path ->
+          String.ends_with?(path, "_test.exs") and
+            not Regex.match?(~r{(?:^|/)test/fixtures/}, path)
+        end
+      ],
+      test_ignore_filters: [~r{(?:^|/)test/fixtures/}],
       aliases: aliases(),
       description:
         "Security verification for Elixir: discover security properties, find " <>
@@ -64,6 +73,9 @@ defmodule Pudding.MixProject do
       {:tidewave, "~> 0.8", only: :dev},
       {:bandit, "~> 1.0", only: :dev},
       {:reach, "~> 2.8", only: :test},
+      {:lynx,
+       git: "https://github.com/josevalim/lynx.git",
+       ref: "99a6db764c154207cf3b28c35409d9b56c463357"},
       {:credo, "~> 1.7", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.4", only: [:dev, :test], runtime: false},
       {:mix_audit, "~> 2.1", only: [:dev, :test], runtime: false},
