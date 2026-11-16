@@ -121,6 +121,15 @@ jobs:
       - name: Run tests
         run: mix test --warnings-as-errors
 
+      - name: Qualify ordinary archive-path consumer (not a universal proof)
+        working-directory: test/fixtures/projects/archive_path
+        env:
+          MIX_ENV: prod
+        run: |
+          mix deps.get
+          mix compile --warnings-as-errors
+          mix run qualification.exs
+
       # Multi-node tests are tagged :distributed and excluded from `mix test`
       # because spawning peer nodes is slow. Run them here so they can't rot.
       - name: Run distributed tests

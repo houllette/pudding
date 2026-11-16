@@ -1,0 +1,251 @@
+==> earmark_parser
+Compiling 3 files (.erl)
+Compiling 32 files (.ex)
+Generated earmark_parser app
+==> file_system
+Compiling 7 files (.ex)
+Generated file_system app
+==> mime
+Compiling 1 file (.ex)
+Generated mime app
+==> nimble_options
+Compiling 3 files (.ex)
+Generated nimble_options app
+==> bunt
+Compiling 2 files (.ex)
+Generated bunt app
+Build completed successfully (67 jobs).
+==> lynx
+Compiling 1 file (.erl)
+Compiling 8 files (.ex)
+Generated lynx app
+==> jason
+Compiling 10 files (.ex)
+Generated jason app
+==> hpax
+Compiling 4 files (.ex)
+Generated hpax app
+==> mint
+Compiling 1 file (.erl)
+Compiling 21 files (.ex)
+Generated mint app
+==> pudding
+===> Failed to restore /Users/holden/Documents/pudding/deps/yamerl/_build/prod/lib/.rebar3/rebar_compiler_erl/source.dag file. Discarding it.
+
+===> Analyzing applications...
+===> Compiling yamerl
+/Users/holden/Documents/pudding/deps/yamerl/src/yamerl_node_binary.erl:65:9: Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+%   65|    case catch base64:decode(Text) of
+%     |         ^
+
+/Users/holden/Documents/pudding/deps/yamerl/src/yamerl_node_binary.erl:72:9: Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+%   72|    case catch base64:decode(Text) of
+%     |         ^
+
+/Users/holden/Documents/pudding/deps/yamerl/src/yamerl_constr.erl:801:5: Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+%  801|     catch Mod:module_info(),
+%     |     ^
+
+    ┌─ src/yamerl_node_binary.erl:
+    │
+ 65 │     case catch base64:decode(Text) of
+    │          ╰── Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+
+    ┌─ src/yamerl_node_binary.erl:
+    │
+ 72 │     case catch base64:decode(Text) of
+    │          ╰── Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+
+
+     ┌─ src/yamerl_constr.erl:
+     │
+ 801 │      catch Mod:module_info(),
+     │      ╰── Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+
+
+==> erlex
+Compiling 2 files (.erl)
+Compiling 2 files (.ex)
+Generated erlex app
+==> owl
+Compiling 19 files (.ex)
+Generated owl app
+==> sourceror
+Compiling 20 files (.ex)
+Generated sourceror app
+==> ex_ast
+Compiling 36 files (.ex)
+Generated ex_ast app
+==> text_diff
+Compiling 1 file (.ex)
+Generated text_diff app
+==> yaml_elixir
+Compiling 6 files (.ex)
+Generated yaml_elixir app
+==> mix_audit
+Compiling 16 files (.ex)
+Generated mix_audit app
+==> spitfire
+Compiling 2 files (.erl)
+Compiling 5 files (.ex)
+Generated spitfire app
+==> libgraph
+Compiling 15 files (.ex)
+Generated libgraph app
+==> nimble_parsec
+Compiling 4 files (.ex)
+Generated nimble_parsec app
+==> makeup
+Compiling 15 files (.ex)
+Generated makeup app
+==> makeup_elixir
+Compiling 6 files (.ex)
+Generated makeup_elixir app
+==> makeup_erlang
+Compiling 4 files (.ex)
+Generated makeup_erlang app
+==> ex_doc
+Compiling 30 files (.ex)
+Generated ex_doc app
+==> pudding
+===> Failed to restore /Users/holden/Documents/pudding/deps/telemetry/_build/prod/lib/.rebar3/rebar_compiler_erl/source.dag file. Discarding it.
+
+===> Analyzing applications...
+===> Compiling telemetry
+==> reach
+Compiling 287 files (.ex)
+Generated reach app
+==> dialyxir
+Compiling 70 files (.ex)
+Generated dialyxir app
+==> glob_ex
+Compiling 4 files (.ex)
+Generated glob_ex app
+warning: "xref: [exclude: ...]" in your mix.exs file is deprecated, instead use: "elixirc_options: [no_warn_undefined: ...]"
+  (mix 1.20.2) lib/mix/tasks/compile.elixir.ex:243: Mix.Tasks.Compile.Elixir.xref_exclude_opts/2
+  (mix 1.20.2) lib/mix/tasks/compile.elixir.ex:142: Mix.Tasks.Compile.Elixir.run/1
+  (mix 1.20.2) lib/mix/task.ex:502: anonymous fn/3 in Mix.Task.run_task/5
+  (mix 1.20.2) lib/mix/task.compiler.ex:299: Mix.Task.Compiler.run_compiler/2
+  (mix 1.20.2) lib/mix/task.compiler.ex:287: Mix.Task.Compiler.run/4
+  (mix 1.20.2) lib/mix/tasks/compile.all.ex:75: Mix.Tasks.Compile.All.do_run/2
+
+==> rewrite
+Compiling 13 files (.ex)
+Generated rewrite app
+==> credo
+Compiling 257 files (.ex)
+Generated credo app
+==> nimble_pool
+Compiling 2 files (.ex)
+Generated nimble_pool app
+==> finch
+Compiling 23 files (.ex)
+Generated finch app
+==> req
+Compiling 24 files (.ex)
+Generated req app
+==> igniter
+Compiling 62 files (.ex)
+Generated igniter app
+==> usage_rules
+Compiling 6 files (.ex)
+Generated usage_rules app
+==> pudding
+Compiling 1 file (.ex)
+Generated pudding app
+Running ExUnit with seed: 921328, max_cases: 36
+
+
+
+  1) test the oracle's wrapper includes nonbyte bitstrings and arbitrary nonbinary terms (Pudding.Contracts.PathPolicyTest)
+     test/pudding/contracts/path_policy_test.exs:48
+     ** (UndefinedFunctionError) function Pudding.Contracts.PathPolicy.expected/1 is undefined (module Pudding.Contracts.PathPolicy is not available)
+     code: for input <- [nil, :path, 12, 1.5, [], [97], {}, %{}, <<1::1>>, <<255, 1::1>>] do
+     stacktrace:
+       Pudding.Contracts.PathPolicy.expected(nil)
+       test/pudding/contracts/path_policy_test.exs:50: anonymous fn/2 in Pudding.Contracts.PathPolicyTest."test the oracle's wrapper includes nonbyte bitstrings and arbitrary nonbinary terms"/1
+       (elixir 1.20.2) lib/enum.ex:2622: Enum."-reduce/3-lists^foldl/2-0-"/3
+       test/pudding/contracts/path_policy_test.exs:49: (test)
+
+
+
+  2) test the byte oracle preserves exact useful output without text interpretation (Pudding.Contracts.PathPolicyTest)
+     test/pudding/contracts/path_policy_test.exs:36
+     ** (UndefinedFunctionError) function Pudding.Contracts.PathPolicy.expected/1 is undefined (module Pudding.Contracts.PathPolicy is not available)
+     code: for {input, components} <- @valid do
+     stacktrace:
+       Pudding.Contracts.PathPolicy.expected("a")
+       test/pudding/contracts/path_policy_test.exs:38: anonymous fn/2 in Pudding.Contracts.PathPolicyTest."test the byte oracle preserves exact useful output without text interpretation"/1
+       (elixir 1.20.2) lib/enum.ex:2622: Enum."-reduce/3-lists^foldl/2-0-"/3
+       test/pudding/contracts/path_policy_test.exs:37: (test)
+
+
+
+  3) test all single bytes have the exact specified classification (Pudding.Contracts.PathPolicyTest)
+     test/pudding/contracts/path_policy_test.exs:54
+     ** (UndefinedFunctionError) function Pudding.Contracts.PathPolicy.expected/1 is undefined (module Pudding.Contracts.PathPolicy is not available)
+     code: for byte <- 0..255 do
+     stacktrace:
+       Pudding.Contracts.PathPolicy.expected(<<0>>)
+       test/pudding/contracts/path_policy_test.exs:61: anonymous fn/2 in Pudding.Contracts.PathPolicyTest."test all single bytes have the exact specified classification"/1
+       (elixir 1.20.2) lib/enum.ex:4659: Enum.reduce/3
+       test/pudding/contracts/path_policy_test.exs:55: (test)
+
+
+
+  4) test slash splitting preserves every empty component, including the empty binary (Pudding.Contracts.PathPolicyTest)
+     test/pudding/contracts/path_policy_test.exs:42
+     ** (UndefinedFunctionError) function Pudding.Contracts.PathPolicy.split_slash/1 is undefined (module Pudding.Contracts.PathPolicy is not available)
+     code: assert PathPolicy.split_slash(<<>>) === [<<>>]
+     stacktrace:
+       Pudding.Contracts.PathPolicy.split_slash("")
+       test/pudding/contracts/path_policy_test.exs:43: (test)
+
+
+
+  5) test the byte oracle rejects exact invalid paths (Pudding.Contracts.PathPolicyTest)
+     test/pudding/contracts/path_policy_test.exs:30
+     ** (UndefinedFunctionError) function Pudding.Contracts.PathPolicy.expected/1 is undefined (module Pudding.Contracts.PathPolicy is not available)
+     code: for input <- @invalid do
+     stacktrace:
+       Pudding.Contracts.PathPolicy.expected("")
+       test/pudding/contracts/path_policy_test.exs:32: anonymous fn/2 in Pudding.Contracts.PathPolicyTest."test the byte oracle rejects exact invalid paths"/1
+       (elixir 1.20.2) lib/enum.ex:2622: Enum."-reduce/3-lists^foldl/2-0-"/3
+       test/pudding/contracts/path_policy_test.exs:31: (test)
+
+    warning: Pudding.Contracts.PathPolicy.expected/1 is undefined (module Pudding.Contracts.PathPolicy is not available or is yet to be defined)
+    │
+ 32 │       assert PathPolicy.expected(input) === {:error, :invalid_path}, inspect(input)
+    │                         ~
+    │
+    └─ test/pudding/contracts/path_policy_test.exs:32:25: Pudding.Contracts.PathPolicyTest."test the byte oracle rejects exact invalid paths"/1
+    └─ test/pudding/contracts/path_policy_test.exs:38:25: Pudding.Contracts.PathPolicyTest."test the byte oracle preserves exact useful output without text interpretation"/1
+    └─ test/pudding/contracts/path_policy_test.exs:50:25: Pudding.Contracts.PathPolicyTest."test the oracle's wrapper includes nonbyte bitstrings and arbitrary nonbinary terms"/1
+    └─ test/pudding/contracts/path_policy_test.exs:61:25: Pudding.Contracts.PathPolicyTest."test all single bytes have the exact specified classification"/1
+
+    warning: Pudding.Contracts.PathPolicy.split_slash/1 is undefined (module Pudding.Contracts.PathPolicy is not available or is yet to be defined)
+    │
+ 43 │     assert PathPolicy.split_slash(<<>>) === [<<>>]
+    │                       ~
+    │
+    └─ test/pudding/contracts/path_policy_test.exs:43:23: Pudding.Contracts.PathPolicyTest."test slash splitting preserves every empty component, including the empty binary"/1
+    └─ test/pudding/contracts/path_policy_test.exs:44:23: Pudding.Contracts.PathPolicyTest."test slash splitting preserves every empty component, including the empty binary"/1
+    └─ test/pudding/contracts/path_policy_test.exs:45:23: Pudding.Contracts.PathPolicyTest."test slash splitting preserves every empty component, including the empty binary"/1
+
+
+Finished in 0.1 seconds (0.1s async, 0.00s sync)
+
+Result: 0/5 passed
+Failed: 5 tests

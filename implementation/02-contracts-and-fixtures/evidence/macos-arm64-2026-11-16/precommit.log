@@ -1,0 +1,21 @@
+No retired or security advisory packages found
+No vulnerabilities found.
+Checking 21 source files ...
+
+Please report incorrect results: https://github.com/rrrene/credo/issues
+
+Analysis took 0.05 seconds (0.01s to load, 0.04s running 69 checks on 21 files)
+67 mods/funs, found no issues.
+
+Use `mix credo explain` to explain issues, `mix credo --help` for options.
+Generating docs...
+warning: documentation references file "docs/verification/results.md" but it does not exist
+└─ README.md: (file)
+
+warning: documentation references file "docs/verification/results.md" but it does not exist
+└─ README.md: (file)
+
+View html docs at "doc/index.html"
+View markdown docs at "doc/llms.txt"
+View epub docs at "doc/Pudding.epub"
+Documents have been generated, but generation for html, epub formats failed due to warnings while using the --warnings-as-errors option

@@ -1,6 +1,8 @@
 # Phase 02 — Freeze the policy and ordinary consumer fixtures
 
-**State:** Not started.
+**State:** Complete — gate passed; [handoff and retained evidence](HANDOFF.md).
+The owner explicitly accepted the frozen candidate identity; no universal proof
+or product receipt is claimed.
 
 **Depends on:** Passed phase 01 and its current handoff.
 
@@ -49,15 +51,15 @@ boundary/control tests, initial direct Lynx laws, and versioned result schema.
 
 ## Validation and handoff gate
 
-- [ ] Accepted contract identity and approval exist; candidate proposals remain
+- [x] Accepted contract identity and approval exist; candidate proposals remain
   separately visible. Without approval, leave this gate blocked.
-- [ ] Concrete byte-policy cases assert exact values and expose the vulnerable `..`
+- [x] Concrete byte-policy cases assert exact values and expose the vulnerable `..`
   behavior while the fixed fixture satisfies them.
-- [ ] Laws cover every finite binary, not only already valid paths; wrapper scope,
+- [x] Laws cover every finite binary, not only already valid paths; wrapper scope,
   unexpected errors, totality, and filesystem/Unicode exclusions are explicit.
-- [ ] Reject-all, changed-output, and hidden-precondition controls conflict with
+- [x] Reject-all, changed-output, and hidden-precondition controls conflict with
   required obligations. No production claim follows from a passing case corpus.
-- [ ] Outcome/schema tests distinguish assumptions, conformance, freshness, and
+- [x] Outcome/schema tests distinguish assumptions, conformance, freshness, and
   evidence authority; `mix precommit` and ordinary consumer tests pass.
 
 Write `HANDOFF.md` using the [template](../HANDOFF_TEMPLATE.md), with exact
