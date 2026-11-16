@@ -7,12 +7,15 @@ and proof checking. Pudding does not maintain a second language semantics or
 translator.
 
 This remains a plan for the security verifier, not an implemented verifier.
-**Phases 01–02 are complete** with evidence-backed handoffs:
-[01 — Lynx foundation](01-lynx-foundation/HANDOFF.md) and
-[02 — Contracts and fixtures](02-contracts-and-fixtures/HANDOFF.md).
-Phases **03–13 are not started**.
-The first security milestone remains an independently replayable proof of the
-actual binary path validator, before building a general adapter or autonomous worker.
+**Phases 01–03 are complete** with evidence-backed handoffs:
+[01 — Lynx foundation](01-lynx-foundation/HANDOFF.md),
+[02 — Contracts and fixtures](02-contracts-and-fixtures/HANDOFF.md), and
+[03 — Validator proof](03-validator-proof/HANDOFF.md).
+Phases **04–13 are not started**.
+The first feasibility milestone is now met: the actual binary path validator's
+full accepted contract and nonbinary wrapper independently replay. These direct
+model proofs are not product receipts or verified translation; general capture,
+adapter and evidence authority remain later gates.
 
 ## Running a phase
 
@@ -46,7 +49,7 @@ still runs.
 | --- | --- | --- |
 | [01 — Lynx foundation](01-lynx-foundation/README.md) | Pinned backend/toolchain, clean build, trust inventory | **Passed** — [handoff/evidence](01-lynx-foundation/HANDOFF.md); ordinary consumer verifies and independently rechecks a small law on Linux ARM64 |
 | [02 — Contracts and fixtures](02-contracts-and-fixtures/README.md) | Reviewed byte policy, vulnerable/fixed Mix fixtures, result schema | **Passed** — [handoff/evidence](02-contracts-and-fixtures/HANDOFF.md); exact byte behavior, full-domain initial laws, and explicit owner acceptance; no universal proof yet |
-| [03 — Validator proof](03-validator-proof/README.md) | Direct Lynx proof of the real binary validator and wrapper | Full contract independently replays; first go/no-go decision |
+| [03 — Validator proof](03-validator-proof/README.md) | Direct Lynx proof of the real binary validator and wrapper | **Passed** — [handoff/evidence](03-validator-proof/HANDOFF.md); both full-domain laws independently replay through six checkers on Linux ARM64; go to Phase 04 |
 | [04 — Build capture](04-build-capture/README.md) | Isolated ordinary-project capture and immutable manifests | Actual target/dependency artifacts and build inputs are bound |
 | [05 — Lynx backend adapter](05-lynx-backend-adapter/README.md) | Thin adapter, support inventory, targeted conformance checks | Exact required claims run against captured code; mismatches quarantine evidence |
 | [06 — Evidence checker](06-evidence-checker/README.md) | Isolated exact-contract checking and durable receipts | Hostile submissions, stale exports, and substituted inputs fail closed |

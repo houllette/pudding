@@ -130,6 +130,15 @@ jobs:
           mix compile --warnings-as-errors
           mix run qualification.exs
 
+      - name: Prove exact validator laws and exercise proof controls (not independent qualification)
+        working-directory: test/fixtures/projects/archive_path
+        env:
+          MIX_ENV: prod
+          VALIDATOR_OUTPUT: ${{ runner.temp }}/validator-proof
+        run: |
+          mkdir "$VALIDATOR_OUTPUT"
+          mix run --no-compile proof_qualification_test.exs
+
       # Multi-node tests are tagged :distributed and excluded from `mix test`
       # because spawning peer nodes is slow. Run them here so they can't rot.
       - name: Run distributed tests

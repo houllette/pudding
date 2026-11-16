@@ -9,8 +9,9 @@
 The candidate is deliberately still marked candidate. Acceptance points to its
 exact bytes rather than rewriting the proposal. The acceptance is a transcription
 of the owner's explicit session answer, not an authenticated signature or proof.
-`Pudding.Contracts.IdentityTest` checks the record linkage and current reference
-and initial-law digests; it cannot establish human authority by itself.
+`Pudding.Contracts.IdentityTest` checks the record linkage, current reference,
+historical initial-law digest and unchanged current executable statements; it
+cannot establish human authority by itself.
 
 ## Exact behavior
 
@@ -59,10 +60,13 @@ The required law inventory is exactly:
 2. `ArchivePath.Laws.nonbinary_wrapper/1`: requires `not is_binary(input)`;
    expects the exact wrapper error.
 
-Law statements are executable initial obligations, **not completed proofs**.
-The candidate's expected Lean names must be checked against generated statements
-in phase 03. The eventual expectation must successfully return
-`Except.ok Lynx.Term.true`; equal exhausted computations do not suffice.
+Phase 03 now supplies completed direct Lynx model proofs of these unchanged
+obligations. The generated expectations successfully return
+`Except.ok Lynx.Term.true`; both target and reference return normally, rather
+than equating two exhausted computations. The
+[proof recipe and retained replay](../../../proof/validator/README.md) document
+exact statement binding, all-domain induction, nonbyte bitstrings and independent
+Linux checking. This is not a verified-translation or Pudding receipt claim.
 
 Reject-all and sanitized-output controls fail useful-acceptance/output obligations.
 The deliberately stronger requirement fails to return true on `..`, demonstrating

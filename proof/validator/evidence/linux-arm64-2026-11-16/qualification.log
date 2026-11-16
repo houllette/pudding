@@ -1,0 +1,303 @@
+Outer read-only/network/credential probes and inner bwrap probe passed
+time(seconds)        unlimited
+file(blocks)         unlimited
+data(kbytes)         unlimited
+stack(kbytes)        8192
+coredump(blocks)     0
+memory(kbytes)       unlimited
+locked memory(kbytes) 8192
+process              256
+nofiles              1024
+vmemory(kbytes)      unlimited
+locks                unlimited
+rtprio               0
+Linux 5ec515efb5d2 7.2.11-200.fc44.aarch64 #1 SMP PREEMPT_DYNAMIC Thu Oct 15 16:01:15 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+Erlang/OTP 29 [erts-17.0.2] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit]
+
+Elixir 1.20.2 (compiled with Erlang/OTP 29)
+OTP_RELEASE=29.0.2
+
+ERTS=17.0.2
+Lean (version 4.35.0, aarch64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)
+bubblewrap 0.9.0
+72d674b469a5732f69b4d6408c215040c227cc25b4c6b7c7826c16fe19e088b3  /opt/lean/bin/lean
+3c36a30874edda465d5c0ca9da80d738cb9162bae54bd8d6395b8217fd89503e  /opt/lean/bin/lake
+1e65ffc8b0b3028741ed18750b6938d3a0eb11f67ae42aea4bcea85ecbb3bd8f  /opt/lean/bin/con-leche
+dffb74c9f1ef654d69948beacd7865746a2144d560fe37fcfb84d4d374ad52c8  /opt/lean/bin/con-ron
+4ab53d0ecba43b6b30ac4e7b481addd3eba6b3d4363e2565a7c33d411d3c8285  /opt/lean/bin/lean4lean
+525f3825e509584271babe5dfc397197ff703153de9d227e26e5b8d0b8a8904c  /opt/lean/bin/leanchecker
+75faa63ffbbaf94aa4e15a24477eff8069e314123093b5812a362fb78fcadc9f  /opt/lean/bin/leanchecker-paranoid
+51fbcd9a90f152d4a166984fe03416a007ba0e69ecd45352dbd1cc269225e5d2  /opt/lean/bin/leanexport
+c240b74c152a6b5f5a3abc51045d325effff746b6db40d2fe46b84a10bd63610  /opt/lean/bin/nanoda_bin
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.macl'
+Lean (version 4.35.0, aarch64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+Note: switching to '99a6db764c154207cf3b28c35409d9b56c463357'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+✔ [1/38] Built Lynx.Term.Eval (116ms)
+✔ [2/38] Built Lynx.Concurrent.Kernel (260ms)
+✔ [3/38] Built Lynx.Term.Bitstring (876ms)
+✔ [4/38] Built Lynx.Term.FiniteFloat.Rounding (2.1s)
+✔ [5/38] Built Lynx.Term.FiniteFloat (344ms)
+✔ [6/38] Built Lynx.Term.DataTypes (968ms)
+✔ [7/38] Built Lynx.Term.Induction (150ms)
+✔ [8/38] Built Lynx.Term.Result (327ms)
+✔ [9/38] Built Lynx.Term.Except (500ms)
+✔ [10/38] Built Lynx.Term.Dispatch (464ms)
+✔ [11/38] Built Lynx.Term.Order (309ms)
+✔ [12/38] Built Lynx.Concurrent (878ms)
+✔ [13/38] Built Lynx.Concurrent.Termination (917ms)
+✔ [14/38] Built Lynx.Term.Runner (310ms)
+✔ [15/38] Built Lynx.Term.Compare (5.2s)
+✔ [16/38] Built Lynx.Term.Maps (161ms)
+✔ [17/38] Built Lynx.Concurrent.Footprint (5.4s)
+✔ [18/38] Built Lynx.Concurrent.Reduction (2.7s)
+✔ [19/38] Built Lynx.Concurrent.Trace (173ms)
+✔ [20/38] Built Lynx.Concurrent.Confluence (695ms)
+✔ [21/38] Built Lynx.Term (131ms)
+✔ [22/38] Built Lynx.Modules.Erlang.erts_internal (215ms)
+✔ [23/38] Built Lynx.Modules.Erlang.erlang.Exceptions (270ms)
+✔ [24/38] Built Lynx.Modules.Erlang.lists (370ms)
+✔ [25/38] Built Lynx.Modules.Erlang.erlang.Process (601ms)
+✔ [26/38] Built Lynx.Modules.Erlang.math (504ms)
+✔ [27/38] Built Lynx.Modules.Erlang.sets (1.3s)
+✔ [28/38] Built Lynx.Term.Bitstring.Construction (1.2s)
+✔ [29/38] Built Lynx.Modules.Erlang.binary (1.8s)
+✔ [30/38] Built Lynx.Modules.Erlang.maps (1.8s)
+✔ [31/38] Built Lynx.Modules.Erlang.erlang.Hashing (2.1s)
+✔ [32/38] Built Lynx.Modules.Erlang.erlang.Guards (2.4s)
+✔ [33/38] Built Lynx.Modules.Erlang.erlang.Conversions (2.5s)
+✔ [34/38] Built Lynx.Modules.Erlang.erlang (140ms)
+✔ [35/38] Built Lynx.Term.Bitstring.Matching (2.5s)
+✔ [37/67] Built Lynx (84ms)
+✔ [39/67] Built Lynx.Term.Eval:c.o (24ms)
+✔ [40/67] Built Lynx.Term.FiniteFloat:c.o (83ms)
+✔ [41/67] Built Lynx.Term.Except:c.o (83ms)
+✔ [42/67] Built Lynx.Term.Result:c.o (67ms)
+✔ [43/67] Built Lynx.Term.FiniteFloat.Rounding:c.o (182ms)
+✔ [44/67] Built Lynx.Term.Bitstring:c.o (162ms)
+✔ [45/67] Built Lynx.Term.Maps:c.o (141ms)
+✔ [46/67] Built Lynx.Concurrent.Kernel:c.o (93ms)
+✔ [47/67] Built Lynx.Term.Dispatch:c.o (203ms)
+✔ [48/67] Built Lynx.Term.Induction:c.o (76ms)
+✔ [49/67] Built Lynx.Term.Order:c.o (85ms)
+✔ [50/67] Built Lynx.Concurrent.Termination:c.o (325ms)
+✔ [51/67] Built Lynx.Term.Runner:c.o (312ms)
+✔ [52/67] Built Lynx.Concurrent.Confluence:c.o (176ms)
+✔ [53/67] Built Lynx.Concurrent.Trace:c.o (314ms)
+✔ [54/67] Built Lynx.Term:c.o (93ms)
+✔ [55/67] Built Lynx.Term.DataTypes:c.o (885ms)
+✔ [56/67] Built Lynx:c.o (72ms)
+✔ [57/67] Built Lynx.Term.Bitstring.Construction:c.o (233ms)
+✔ [58/67] Built Lynx.Term.Bitstring.Matching:c.o (311ms)
+✔ [59/67] Built Lynx.Runner.Elab (1.3s)
+✔ [60/67] Built Lynx.Concurrent:c.o (1.1s)
+✔ [61/67] Built Lynx.Concurrent.Reduction:c.o (1.1s)
+✔ [62/67] Built Lynx.Concurrent.Footprint:c.o (1.6s)
+✔ [63/67] Built Lynx.Runner.Elab:c.o (676ms)
+✔ [64/67] Built Lynx.Term.Compare:c.o (3.2s)
+✔ [65/67] Built Lynx.Runner (5.1s)
+✔ [66/67] Built Lynx.Runner:c.o (9.2s)
+✔ [67/67] Built Lynx.Runner:exe (361ms)
+Build completed successfully (67 jobs).
+==> lynx
+Compiling 1 file (.erl)
+Compiling 8 files (.ex)
+Generated lynx app
+==> pudding
+Compiling 3 files (.ex)
+Generated pudding app
+==> archive_path
+Compiling 4 files (.ex)
+Generated archive_path app
+Running ExUnit with seed: 770373, max_cases: 8
+
+...........
+Finished in 12.7 seconds (12.7s async, 0.00s sync)
+
+Result: 11 passed
+Proof harness elapsed seconds: 13
+lib/pudding.ex: OK
+lib/pudding/result.ex: OK
+lib/pudding/contracts/path_policy.ex: OK
+proof/validator/contract/proof-inputs.json: OK
+proof/validator/contract/initial-laws.ex.txt: OK
+proof/validator/lemmas.lean: OK
+test/fixtures/projects/archive_path/lib/vulnerable.ex: OK
+test/fixtures/projects/archive_path/lib/controls.ex: OK
+test/fixtures/projects/archive_path/lib/laws.ex: OK
+test/fixtures/projects/archive_path/lib/fixed.ex: OK
+Running Lean paranoid kernel on solution
+Lean paranoid kernel accepts the solution
+Running lean4lean kernel on solution
+checked 5501 declarations
+lean4lean kernel accepts the solution
+Running nanoda kernel on solution
+nanoda kernel accepts the solution
+Running con-leche kernel on solution
+con-leche: accepted 5504 declarations (--verified)
+con-leche kernel accepts the solution
+Running con-ron kernel on solution
+con-ron: accepted 5504 declarations (--verified)
+con-ron kernel accepts the solution
+Running Lean default kernel on solution
+Lean default kernel accepts the solution
+Uses axioms: propext, Quot.sound, Classical.choice
+Independent checker elapsed seconds: 17
+Lean paranoid kernel accepts the solution
+lean4lean kernel accepts the solution
+nanoda kernel accepts the solution
+con-leche kernel accepts the solution
+con-ron kernel accepts the solution
+Lean default kernel accepts the solution
+Uses axioms: propext, Quot.sound, Classical.choice
+Running Lean paranoid kernel on solution
+Lean paranoid kernel accepts the solution
+Running lean4lean kernel on solution
+checked 0 declarations
+lean4lean kernel accepts the solution
+Running nanoda kernel on solution
+Error: key must be a string at line 1 column 2
+
+run with `-h` or `--help` for help
+nanoda kernel rejected the solution
+Running con-leche kernel on solution
+con-leche: /out/malformed.ndjson:1: expected ',' or '}' (byte 1)
+con-leche kernel rejected the solution
+Running con-ron kernel on solution
+con-ron: /out/malformed.ndjson:1: expected ',' or '}' (byte 1)
+con-ron kernel rejected the solution
+Running Lean default kernel on solution
+error: nanoda exited with 1
+Lean default kernel accepts the solution
+nanoda kernel rejected the solution
+con-leche kernel rejected the solution
+con-ron kernel rejected the solution
+Running Lean paranoid kernel on solution
+Lean paranoid kernel rejected the solution
+Running lean4lean kernel on solution
+PANIC at _private.Lean.Environment.0.Lean.EnvExtension.getStateImpl Lean.Environment:1376:4: invalid environment extension has been accessed
+backtrace:
+/opt/lean/bin/lean4lean(+0x1631c00) [0xaaaab4be1c00]
+/opt/lean/bin/lean4lean(+0x16288ac) [0xaaaab4bd88ac]
+/opt/lean/bin/lean4lean(+0x16289c0) [0xaaaab4bd89c0]
+/opt/lean/bin/lean4lean(+0x6e9ff4) [0xaaaab3c99ff4]
+/opt/lean/bin/lean4lean(+0x73eb0c) [0xaaaab3ceeb0c]
+/opt/lean/bin/lean4lean(+0x74596c) [0xaaaab3cf596c]
+/opt/lean/bin/lean4lean(+0x1638334) [0xaaaab4be8334]
+/opt/lean/bin/lean4lean(+0x747ec4) [0xaaaab3cf7ec4]
+/opt/lean/bin/lean4lean(+0x748b74) [0xaaaab3cf8b74]
+/opt/lean/bin/lean4lean(+0x748acc) [0xaaaab3cf8acc]
+/opt/lean/bin/lean4lean(+0x748b74) [0xaaaab3cf8b74]
+/opt/lean/bin/lean4lean(+0x748b60) [0xaaaab3cf8b60]
+/opt/lean/bin/lean4lean(+0x748b60) [0xaaaab3cf8b60]
+/opt/lean/bin/lean4lean(+0x749600) [0xaaaab3cf9600]
+/opt/lean/bin/lean4lean(+0x58d7c0) [0xaaaab3b3d7c0]
+/opt/lean/bin/lean4lean(+0x58fc40) [0xaaaab3b3fc40]
+/opt/lean/bin/lean4lean(+0x591a84) [0xaaaab3b41a84]
+/opt/lean/bin/lean4lean(+0x592bd0) [0xaaaab3b42bd0]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x594d98) [0xaaaab3b44d98]
+/opt/lean/bin/lean4lean(+0x49fe3c) [0xaaaab3a4fe3c]
+/opt/lean/bin/lean4lean(+0x1602108) [0xaaaab4bb2108]
+/opt/lean/bin/lean4lean(+0x1602834) [0xaaaab4bb2834]
+/lib/aarch64-linux-gnu/libc.so.6(+0x8595c) [0xffff8e06595c]
+/lib/aarch64-linux-gnu/libc.so.6(+0xebb4c) [0xffff8e0cbb4c]
+lean4lean kernel rejected the solution
+Running nanoda kernel on solution
+
+thread 'thread_2' (5) panicked at src/tc.rs:955:71:
+assertion failed: self.def_eq(u, v)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' (2) panicked at src/tc.rs:173:26:
+A thread in `check_all_declars` panicked while being joined: Any { .. }
+nanoda kernel rejected the solution
+Running con-leche kernel on solution
+con-leche: invalid: type mismatch in theorem Elixir.ArchivePath.Laws.laws.binary_contract/1 [at theorem Elixir.ArchivePath.Laws.laws.binary_contract/1, fold position 5457] (--verified) t=1.9s
+con-leche kernel rejected the solution
+Running con-ron kernel on solution
+con-ron: rejected: type mismatch in theorem [at theorem Elixir.ArchivePath.Laws.laws.binary_contract/1, fold position 5457] (--verified) t=0.913s
+con-ron kernel rejected the solution
+Running Lean default kernel on solution
+error: Lean paranoid exited with 1
+Lean default kernel rejected the solution
+Lean paranoid kernel rejected the solution
+lean4lean kernel rejected the solution
+nanoda kernel rejected the solution
+con-leche kernel rejected the solution
+con-ron kernel rejected the solution
+Lean default kernel rejected the solution
+VALIDATOR_GATE_PASSED
+
+memory.peak
+3888549888
+
+memory.events
+low 0
+high 0
+max 0
+oom 0
+oom_kill 0
+oom_group_kill 0
+sock_throttled 0
+
+cpu.stat
+usage_usec 201096354
+user_usec 163665328
+system_usec 37431026
+nice_usec 0
+core_sched.force_idle_usec 0
+nr_periods 1606
+nr_throttled 121
+throttled_usec 10884699
+nr_bursts 0
+burst_usec 0
+
+pids.peak
+155

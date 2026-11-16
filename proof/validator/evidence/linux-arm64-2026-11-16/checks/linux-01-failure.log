@@ -1,0 +1,154 @@
+Outer read-only/network/credential probes and inner bwrap probe passed
+time(seconds)        unlimited
+file(blocks)         unlimited
+data(kbytes)         unlimited
+stack(kbytes)        8192
+coredump(blocks)     0
+memory(kbytes)       unlimited
+locked memory(kbytes) 8192
+process              256
+nofiles              1024
+vmemory(kbytes)      unlimited
+locks                unlimited
+rtprio               0
+Linux cf5cdd803cb1 7.2.11-200.fc44.aarch64 #1 SMP PREEMPT_DYNAMIC Thu Oct 15 16:01:15 UTC 2026 aarch64 aarch64 aarch64 GNU/Linux
+Erlang/OTP 29 [erts-17.0.2] [source] [64-bit] [smp:4:4] [ds:4:4:10] [async-threads:1] [jit]
+
+Elixir 1.20.2 (compiled with Erlang/OTP 29)
+OTP_RELEASE=29.0.2
+
+ERTS=17.0.2
+Lean (version 4.35.0, aarch64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+Lake version 5.0.0-src+eb6cafb (Lean version 4.35.0)
+bubblewrap 0.9.0
+72d674b469a5732f69b4d6408c215040c227cc25b4c6b7c7826c16fe19e088b3  /opt/lean/bin/lean
+3c36a30874edda465d5c0ca9da80d738cb9162bae54bd8d6395b8217fd89503e  /opt/lean/bin/lake
+1e65ffc8b0b3028741ed18750b6938d3a0eb11f67ae42aea4bcea85ecbb3bd8f  /opt/lean/bin/con-leche
+dffb74c9f1ef654d69948beacd7865746a2144d560fe37fcfb84d4d374ad52c8  /opt/lean/bin/con-ron
+4ab53d0ecba43b6b30ac4e7b481addd3eba6b3d4363e2565a7c33d411d3c8285  /opt/lean/bin/lean4lean
+525f3825e509584271babe5dfc397197ff703153de9d227e26e5b8d0b8a8904c  /opt/lean/bin/leanchecker
+75faa63ffbbaf94aa4e15a24477eff8069e314123093b5812a362fb78fcadc9f  /opt/lean/bin/leanchecker-paranoid
+51fbcd9a90f152d4a166984fe03416a007ba0e69ecd45352dbd1cc269225e5d2  /opt/lean/bin/leanexport
+c240b74c152a6b5f5a3abc51045d325effff746b6db40d2fe46b84a10bd63610  /opt/lean/bin/nanoda_bin
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.provenance'
+tar: Ignoring unknown extended header keyword 'LIBARCHIVE.xattr.com.apple.macl'
+Lean (version 4.35.0, aarch64-unknown-linux-gnu, commit eb6cafb7290e8bd5f2937522d8d804f58f02bafc, Release)
+Note: switching to '99a6db764c154207cf3b28c35409d9b56c463357'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+✔ [1/38] Built Lynx.Term.Eval (107ms)
+✔ [2/38] Built Lynx.Concurrent.Kernel (201ms)
+✔ [3/38] Built Lynx.Term.Bitstring (791ms)
+✔ [4/38] Built Lynx.Term.FiniteFloat.Rounding (2.0s)
+✔ [5/38] Built Lynx.Term.FiniteFloat (340ms)
+✔ [6/38] Built Lynx.Term.DataTypes (954ms)
+✔ [7/38] Built Lynx.Term.Induction (157ms)
+✔ [8/38] Built Lynx.Term.Result (299ms)
+✔ [9/38] Built Lynx.Term.Dispatch (415ms)
+✔ [10/38] Built Lynx.Term.Except (467ms)
+✔ [11/38] Built Lynx.Concurrent (839ms)
+✔ [12/38] Built Lynx.Term.Order (319ms)
+✔ [13/38] Built Lynx.Concurrent.Termination (849ms)
+✔ [14/38] Built Lynx.Term.Runner (306ms)
+✔ [15/38] Built Lynx.Term.Compare (4.9s)
+✔ [16/38] Built Lynx.Term.Maps (162ms)
+✔ [17/38] Built Lynx.Concurrent.Footprint (6.0s)
+✔ [18/38] Built Lynx.Concurrent.Reduction (2.7s)
+✔ [19/38] Built Lynx.Concurrent.Trace (183ms)
+✔ [20/38] Built Lynx.Concurrent.Confluence (739ms)
+✔ [21/38] Built Lynx.Term (126ms)
+✔ [22/38] Built Lynx.Modules.Erlang.erts_internal (224ms)
+✔ [23/38] Built Lynx.Modules.Erlang.erlang.Exceptions (240ms)
+✔ [24/38] Built Lynx.Modules.Erlang.lists (293ms)
+✔ [25/38] Built Lynx.Modules.Erlang.erlang.Process (521ms)
+✔ [26/38] Built Lynx.Modules.Erlang.math (400ms)
+✔ [27/38] Built Lynx.Term.Bitstring.Construction (886ms)
+✔ [28/38] Built Lynx.Modules.Erlang.binary (1.5s)
+✔ [29/38] Built Lynx.Modules.Erlang.sets (1.6s)
+✔ [30/38] Built Lynx.Modules.Erlang.maps (1.8s)
+✔ [31/38] Built Lynx.Modules.Erlang.erlang.Hashing (2.1s)
+✔ [32/38] Built Lynx.Modules.Erlang.erlang.Guards (2.3s)
+✔ [33/38] Built Lynx.Modules.Erlang.erlang.Conversions (2.4s)
+✔ [34/38] Built Lynx.Modules.Erlang.erlang (139ms)
+✔ [35/38] Built Lynx.Term.Bitstring.Matching (2.9s)
+✔ [37/67] Built Lynx (92ms)
+✔ [39/67] Built Lynx.Term.Eval:c.o (25ms)
+✔ [40/67] Built Lynx.Term.FiniteFloat:c.o (128ms)
+✔ [41/67] Built Lynx.Term.Bitstring:c.o (146ms)
+✔ [42/67] Built Lynx.Term.Except:c.o (120ms)
+✔ [43/67] Built Lynx.Term.Result:c.o (101ms)
+✔ [44/67] Built Lynx.Term.FiniteFloat.Rounding:c.o (222ms)
+✔ [45/67] Built Lynx.Term.Maps:c.o (136ms)
+✔ [46/67] Built Lynx.Concurrent.Kernel:c.o (89ms)
+✔ [47/67] Built Lynx.Term.Dispatch:c.o (208ms)
+✔ [48/67] Built Lynx.Term.Induction:c.o (81ms)
+✔ [49/67] Built Lynx.Term.Order:c.o (38ms)
+✔ [50/67] Built Lynx.Term.Runner:c.o (381ms)
+✔ [51/67] Built Lynx.Concurrent.Termination:c.o (396ms)
+✔ [52/67] Built Lynx.Concurrent.Confluence:c.o (141ms)
+✔ [53/67] Built Lynx.Term:c.o (88ms)
+✔ [54/67] Built Lynx.Term.DataTypes:c.o (926ms)
+✔ [55/67] Built Lynx.Concurrent.Trace:c.o (348ms)
+✔ [56/67] Built Lynx:c.o (88ms)
+✔ [57/67] Built Lynx.Term.Bitstring.Construction:c.o (291ms)
+✔ [58/67] Built Lynx.Term.Bitstring.Matching:c.o (308ms)
+✔ [59/67] Built Lynx.Runner.Elab (1.4s)
+✔ [60/67] Built Lynx.Concurrent:c.o (1.3s)
+✔ [61/67] Built Lynx.Concurrent.Reduction:c.o (1.2s)
+✔ [62/67] Built Lynx.Concurrent.Footprint:c.o (1.7s)
+✔ [63/67] Built Lynx.Runner.Elab:c.o (777ms)
+✔ [64/67] Built Lynx.Term.Compare:c.o (3.6s)
+✔ [65/67] Built Lynx.Runner (6.1s)
+✔ [66/67] Built Lynx.Runner:c.o (9.3s)
+✔ [67/67] Built Lynx.Runner:exe (342ms)
+Build completed successfully (67 jobs).
+==> lynx
+Compiling 1 file (.erl)
+Compiling 8 files (.ex)
+Generated lynx app
+==> pudding
+Compiling 3 files (.ex)
+Generated pudding app
+==> archive_path
+Compiling 4 files (.ex)
+Generated archive_path app
+/inputs/qualify.sh: 59: /usr/bin/time: not found
