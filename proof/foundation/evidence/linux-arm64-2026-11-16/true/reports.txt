@@ -1,0 +1,29 @@
+[
+  %{
+    module: "Elixir.Foundation.Pair",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/foundation/lib/pair.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 7
+  },
+  %{
+    module: "Elixir.Foundation.Laws",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/foundation/lib/laws.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 282
+  },
+  %{
+    module: "Elixir.Foundation.Laws.laws",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/foundation/lib/laws.ex",
+    cached: false,
+    theorems: [%{name: "involution/2", time_ms: 78}],
+    diagnostics: [],
+    time_ms: 301
+  }
+]

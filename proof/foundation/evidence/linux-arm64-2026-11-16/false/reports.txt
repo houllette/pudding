@@ -1,0 +1,39 @@
+[
+  %{
+    module: "Elixir.Foundation.Pair",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/foundation/lib/pair.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 8
+  },
+  %{
+    module: "Elixir.Foundation.FalseLaws",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/foundation/lib/laws.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 268
+  },
+  %{
+    module: "Elixir.Foundation.FalseLaws.laws",
+    status: :error,
+    file: "/scratch/work/test/fixtures/projects/foundation/lib/laws.ex",
+    cached: false,
+    theorems: [%{name: "unchanged/2", time_ms: 117}],
+    diagnostics: [
+      %{
+        line: 26,
+        message: "Tactic `rfl` failed: The left-hand side\n  «unchanged:ensures/2» left right\nis not definitionally equal to the right-hand side\n  Except.ok Lynx.Term.true\n\nleft right : Lynx.Term\n⊢ «unchanged:ensures/2» left right = Except.ok Lynx.Term.true",
+        module: "Elixir.Foundation.FalseLaws.laws",
+        file: "/scratch/work/test/fixtures/projects/foundation/lib/laws.ex",
+        column: 18,
+        severity: :error,
+        declaration: "unchanged/2"
+      }
+    ],
+    time_ms: 353
+  }
+]

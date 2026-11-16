@@ -1,0 +1,20 @@
+No retired or security advisory packages found
+No vulnerabilities found.
+Checking 7 source files ...
+
+Please report incorrect results: https://github.com/rrrene/credo/issues
+
+Analysis took 0.09 seconds (0.03s to load, 0.06s running 69 checks on 7 files)
+12 mods/funs, found no issues.
+
+Use `mix credo explain` to explain issues, `mix credo --help` for options.
+Generating docs...
+View html docs at "doc/index.html"
+View markdown docs at "doc/llms.txt"
+View epub docs at "doc/Pudding.epub"
+Running ExUnit with seed: 107554, max_cases: 36
+
+..
+Finished in 0.00 seconds (0.00s async, 0.00s sync)
+
+Result: 2 passed (1 doctest, 1 test)

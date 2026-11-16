@@ -75,6 +75,17 @@ jobs:
           restore-keys: |
             mix-${{ runner.os }}-${{ steps.beam.outputs.otp-version }}-${{ steps.beam.outputs.elixir-version }}-
 
+      # Lynx's Mix compile alias builds its Lean runner, including in audit jobs.
+      - name: Install pinned Lean (CI build tooling, not qualified proof evidence)
+        run: |
+          curl --fail --location --retry 2 \
+            https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst \
+            -o "$RUNNER_TEMP/lean.tar.zst"
+          echo "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d  $RUNNER_TEMP/lean.tar.zst" | sha256sum -c -
+          mkdir "$RUNNER_TEMP/lean"
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" --strip-components=1 -C "$RUNNER_TEMP/lean"
+          echo "$RUNNER_TEMP/lean/bin" >> "$GITHUB_PATH"
+
       - name: Install dependencies
         run: mix deps.get
 
@@ -143,6 +154,17 @@ jobs:
           restore-keys: |
             mix-${{ runner.os }}-${{ steps.beam.outputs.otp-version }}-${{ steps.beam.outputs.elixir-version }}-
 
+      # Lynx's Mix compile alias builds its Lean runner, including in audit jobs.
+      - name: Install pinned Lean (CI build tooling, not qualified proof evidence)
+        run: |
+          curl --fail --location --retry 2 \
+            https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst \
+            -o "$RUNNER_TEMP/lean.tar.zst"
+          echo "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d  $RUNNER_TEMP/lean.tar.zst" | sha256sum -c -
+          mkdir "$RUNNER_TEMP/lean"
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" --strip-components=1 -C "$RUNNER_TEMP/lean"
+          echo "$RUNNER_TEMP/lean/bin" >> "$GITHUB_PATH"
+
       - name: Install dependencies
         run: mix deps.get
 
@@ -192,6 +214,17 @@ jobs:
           key: plt-${{ runner.os }}-${{ steps.beam.outputs.otp-version }}-${{ steps.beam.outputs.elixir-version }}-${{ hashFiles('mix.lock') }}
           restore-keys: |
             plt-${{ runner.os }}-${{ steps.beam.outputs.otp-version }}-${{ steps.beam.outputs.elixir-version }}-
+
+      # Lynx's Mix compile alias builds its Lean runner, including in audit jobs.
+      - name: Install pinned Lean (CI build tooling, not qualified proof evidence)
+        run: |
+          curl --fail --location --retry 2 \
+            https://github.com/leanprover/lean4/releases/download/v4.35.0/lean-4.35.0-linux.tar.zst \
+            -o "$RUNNER_TEMP/lean.tar.zst"
+          echo "7289597a44543246c9227b8cae501767e095ce17f6d448b95fc4a8dc97268f6d  $RUNNER_TEMP/lean.tar.zst" | sha256sum -c -
+          mkdir "$RUNNER_TEMP/lean"
+          tar --zstd -xf "$RUNNER_TEMP/lean.tar.zst" --strip-components=1 -C "$RUNNER_TEMP/lean"
+          echo "$RUNNER_TEMP/lean/bin" >> "$GITHUB_PATH"
 
       - name: Install dependencies
         run: mix deps.get

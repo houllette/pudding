@@ -1,0 +1,3 @@
+a984f766d94e5287f7451158f2808d34aa8cb7b7c79bdc561b58c24de84ae8b7  /inputs/source.tar
+0642976d05a331283b979b66aed2ba62bae6a43fea7f0f1600467b601b6affd3  /inputs/lynx.bundle
+fbd1559db260768dada9f839899d60e40ddb72f2a8089aa29170dcded68b280f  /inputs/qualify.sh
