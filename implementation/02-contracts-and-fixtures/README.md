@@ -1,77 +1,72 @@
-# Phase 02 — Establish contracts, fixtures, and result meaning
+# Phase 02 — Freeze the policy and ordinary consumer fixtures
 
 **State:** Not started.
 
-**Depends on:** Phase 01's foundation/trust handoff.
+**Depends on:** Passed phase 01 and its current handoff.
 
-**Next:** [03 — Build capture and extraction](../03-build-capture-and-extraction/README.md).
+**Next:** [03 — Prove the actual binary validator directly with Lynx](../03-validator-proof/README.md).
 
-**Brief:** Sections 3–4, 7–8, 10, 13.4, and 13.9.
+Read the [shared architecture](../ARCHITECTURE.md), [plan](../README.md), and
+[backend/reference sources](../REFERENCES.md) with the prerequisite handoffs.
 
 ## Assignment
 
-Create ordinary Mix fixtures and the versioned contract/result model that later
-proofs and repair attempts must preserve. A candidate contract is never accepted
-because the code, tests, or an agent suggested it.
+Turn the shared archive-path policy into a reviewed executable specification
+and ordinary vulnerable/fixed Elixir fixtures. Define the result/evidence schema
+before a proof worker can influence policy. Only explicit authority accepts a
+contract; preparing it in this phase is not approval.
 
 ## Work
 
-1. Add a small ordinary consumer project, driven through Pudding as a dependency.
-   Include a nonbinary helper over already separated list components, a binary
-   archive validator with the deliberate `../` versus `..` defect, and a fixed
-   reference fixture retained separately. Do not generate compiled artifacts
-   by hand or rewrite emitted programs in the fixture pipeline.
-2. Choose a useful nonbinary contract within the audited list/tuple/atom/integer
-   subset. Specify its full input domain, successful output relation, expected
-   errors/exceptions, positive acceptance, and totality. For example, validate
-   integer-list components with exact preservation of accepted components.
-   Do not claim this establishes the later binary interface.
-3. Encode the strict byte policy from shared architecture and brief section 8.
-   Freeze success as exactly `split_slash(b)` and binary rejection as exactly
-   `{:error, :invalid_path}`. Give the nonbinary wrapper its own
-   `{:error, :not_binary}` obligation and declared caller domain.
-4. Create stable contract IDs/versions/digests, definitions, examples, assumption
-   inventories, and acceptance provenance. Prepare a concrete reviewable policy;
-   obtain explicit acceptance where not already authorized. Preserve proposals
-   separately and test that workers cannot promote or mutate them.
-5. Implement a minimal result schema distinguishing evidence outcome, accepted
-   policy state, visible assumed premises, conformance, freshness, and diagnostics.
-   Include `proved`, `violation_reproduced`, `unsupported`, `unknown`; satisfy
-   AGENTS.md's assumed reporting requirement as a separate visible dimension.
-6. Establish a shared restricted definition or a documented checked-equivalence
-   plan connecting executable contract oracles and formal predicates. Until
-   checked, record their translation as trusted rather than implied equivalence.
+1. Encode the exact byte policy in ARCHITECTURE.md, including empty-preserving
+   slash splitting, exact success components, error atoms, invalid UTF-8, and
+   ordinary backslash/colon bytes. Use a reference algorithm meaningfully distinct
+   from the validator. Keep its implementation separate from its law/proof.
+2. Prepare immutable candidate/accepted policy records with authority, domain,
+   quantifiers, assumptions, executable predicate digests, and required claim IDs.
+   Obtain owner acceptance before phase 03. Record what would require new approval.
+3. Create ordinary Mix consumer fixtures with an intentionally vulnerable check
+   that rejects `../` but accepts `..`, and a fixed byte-recursive validator.
+   Preserve both implementations; no hand-written Lean replacement of either.
+   Label this a synthetic defect, not a historical OTP ZIP reproduction.
+4. Add concrete oracle/fixture tests for empty input/components, `.`, `..`, embedded
+   NUL, leading/trailing/repeated slash, valid arbitrary bytes, backslash, colon,
+   exact component output, and invalid UTF-8. Test the nonbinary wrapper, including
+   nonbyte bitstrings if it promises all nonbinary terms. State its precise domain.
+5. Prepare direct Lynx laws for the full binary input domain and separate wrapper.
+   Positive acceptance and error behavior are obligations, not validity assumptions.
+   Test reject-all, sanitized-output, and stronger-precondition policies as controls
+   so that a vacuous security statement cannot replace the accepted contract.
+6. Define structured evidence outcome, visible assumed premises, contract approval,
+   conformance, and freshness dimensions with examples: direct proof without receipt,
+   conditional proof, reproduced violation, unsupported construct, timeout, stale
+   result, and missing obligation. No unrecognized outcome defaults to success.
 
 ## Deliverables
 
-Use `test/fixtures/projects/`, `test/fixtures/contracts/`,
-`lib/pudding/contracts/`, and a small result module as appropriate. Document the
-schema and acceptance decision in `docs/verification/contracts.md`. Record all
-manual fixture preparation for later automation/economics reporting.
+Accepted policy records, separate reference/fixture implementations, ExUnit
+boundary/control tests, initial direct Lynx laws, and versioned result schema.
 
 ## Validation and handoff gate
 
-- [ ] Nonbinary helper examples assert useful acceptance and rejection, including
-  malformed/improper inputs wherever their domain includes them.
-- [ ] Binary examples cover empty/repeated/trailing components, absolute paths,
-  `.`, `..`, traversal at multiple depths, NUL, invalid UTF-8, backslash, and
-  colon. Invalid UTF-8/backslash/colon cases assert the required acceptance.
-- [ ] The vulnerable fixture accepts `..` contrary to the oracle; keep this as
-  an asserted known defect, without leaving the project test suite red.
-- [ ] Reject-all and nonreturning implementations cannot satisfy the full policy;
-  tests/time limits are diagnostics, not universal totality proofs.
-- [ ] Accepted contracts have recorded authority and immutable identities;
-  misleading inferred policies remain proposals.
-- [ ] Result-schema tests prevent timeout/unsupported/checker failure from being
-  reported proved and show assumptions beside conditional claims.
-- [ ] `mix precommit` passes; library use does not require test-only `reach`.
+- [ ] Accepted contract identity and approval exist; candidate proposals remain
+  separately visible. Without approval, leave this gate blocked.
+- [ ] Concrete byte-policy cases assert exact values and expose the vulnerable `..`
+  behavior while the fixed fixture satisfies them.
+- [ ] Laws cover every finite binary, not only already valid paths; wrapper scope,
+  unexpected errors, totality, and filesystem/Unicode exclusions are explicit.
+- [ ] Reject-all, changed-output, and hidden-precondition controls conflict with
+  required obligations. No production claim follows from a passing case corpus.
+- [ ] Outcome/schema tests distinguish assumptions, conformance, freshness, and
+  evidence authority; `mix precommit` and ordinary consumer tests pass.
 
-Write `HANDOFF.md` with contract identities, acceptance evidence, fixture entry
-points, and oracle/formal-definition trust. Missing required acceptance blocks
-proof/repair work for that contract; it does not block drafting concrete policy.
+Write `HANDOFF.md` using the [template](../HANDOFF_TEMPLATE.md), with exact
+identities, commands/logs, measured effort, and any unresolved gate items.
+A failed or incomplete gate blocks dependent phases; never relabel reduced scope
+as the original pass.
 
 ## Boundary
 
-No filesystem extraction, symlink, Windows, normalization, or generic application
-security claim. No binary semantic theorem yet. Do not add a contract DSL macro
-or dependency merely to represent these initial records.
+No discovery worker, contract DSL, inferred-policy auto-acceptance, filesystem
+security theorem, or universal validator proof claim. Do not infer policy from
+what the vulnerable implementation happens to accept.

@@ -1,72 +1,92 @@
 # Phase NN handoff — title
 
-Copy this into the phase folder as `HANDOFF.md` at the end of its implementation
-run. Fill every section with evidence or an explicit unknown. This template is
-not a completed handoff and does not attest to any gate.
+Copy this into the phase folder as `HANDOFF.md` at the end of implementation.
+Fill every section with evidence or explicit unknown/blocker. This template
+is not a completed handoff and does not attest to any gate.
 
 ## State and identities
 
 - State: not started / in progress / blocked / complete.
-- Gate: passed / failed / not run. Only passed permits the next phase.
-- Source revision, worktree, and uncommitted scoped changes:
-- Accepted contract IDs/digests and acceptance authority:
-- Build/Core/imported-program IDs and artifact locations:
-- Semantics, HARP/fork, proof-toolchain, checker, and policy identities:
-- Implementation plan revision and original research digest used:
+- Gate: passed / failed / not run. Only passed permits dependent phases.
+- Source revision, worktree, and scoped uncommitted bytes/digests:
+- Accepted contract IDs, executable predicate digests, domains, and authority:
+- Required claim inventory and exact theorem/translated-definition identities:
+- Captured build, BEAM/debug/Core/translation IDs and artifact locations:
+- Actual Elixir/OTP, Lynx revision, Lean toolchain, proof dependencies:
+- Checker binaries, axiom policy, isolation/platform, and receipt policy IDs:
+- Plan revision and prerequisite handoff identities:
 
-For artifacts not committed to Git, give durable locations and content hashes.
-If identity is tied to uncommitted bytes, record their digests; do not claim a
-commit identifies changes it does not contain. Preserve unrelated user work.
+For uncommitted or untracked artifacts, give durable locations and content hashes.
+Do not claim a commit identifies bytes it does not contain. Preserve unrelated
+user work. An installed sibling checkout is not an immutable dependency identity.
 
 ## Delivered behavior
 
-Describe the runnable result, public interfaces, changed files, and deliberate
-scope choices. Link the phase's specific required artifacts. Distinguish code
-written from behavior verified and research claims established.
+Describe runnable behavior, interfaces, changed files, and deliberate scope.
+Link required artifacts. Distinguish code written, behavior tested, direct Lynx
+proofs, and independently authorized Pudding receipts. Do not call a plan or
+successful smoke test an implemented security guarantee.
 
 ## Gate checklist and validation
 
-Copy the phase's handoff checklist and mark each item with a supporting artifact
-or unresolved blocker. Record working directory, environment, exact commands,
-exit/result, and log locations for:
+Copy the phase checklist and attach evidence or a blocker to each item. Record
+working directory, actual environment, exact commands, exit/results, log locations,
+and checked artifact IDs for:
 
-- Targeted regression/negative controls and meaningful failure-before evidence.
-- `mix precommit` and any separate non-test consumer compile.
-- Formal-library builds, expected-theorem checks, assumption audits, `rocqchk`.
-- Clean-environment replay and artifact tamper checks where required.
-- Remote CI, if actually run; a local pass is not a remote CI result.
+- Targeted regression/control tests and meaningful failure-before evidence.
+- `mix precommit`; record failures/skips without suppressing them.
+- Separate non-test library, ordinary consumer, and actual package checks.
+- Lynx verification reports and complete required-obligation inventory.
+- Fresh unique exports, exact statement binding, and transitive axiom audits.
+- Independent paranoid checking of the full closure, including every checker outcome.
+- Clean offline replay, tamper controls, and resource/isolation enforcement.
+- Remote CI only if actually run; a local pass is not remote evidence.
 
-List skipped or failed checks and their concrete causes. A green Mix gate does
-not establish Rocq checking or model/BEAM correspondence.
+A Mix pass does not establish formal checking. A Lynx pass/export alone does not
+authorize a receipt. Checker exhaustion, missing tools, unknown output, or an old
+export file is not success. Record exact toolchain mismatches and blockers.
 
 ## Claims and trust
 
-For each target/contract report the evidence outcome, exact domain/bounds,
-assumed premises, conformance status, freshness, and exclusions. List newly
-trusted code, semantic rules, BIF models, logical assumptions, and conversion
-machinery. Do not substitute a worker's explanation for checker evidence.
+For every target/contract list evidence outcome, exact domain/quantifiers,
+normal/error results, assumed premises, conformance, freshness, and exclusions.
+State artifact/receipt locations or explicitly say no receipt exists yet.
+
+List newly trusted reconstruction/translation machinery, runtime models, proof
+imports, logical assumptions, compiler/runtime/environment dependencies, and
+remaining gaps. Preserve the distinction between a model theorem and real BEAM
+correspondence. A model witness needs independent BEAM replay to become a violation.
 
 ## Effort and budget
 
-Record human minutes by foundation, adapter, contract, import, semantics, lemma,
-repair, and review; agent elapsed time/tokens; CPU/memory/checker time; monetary
-cost if any; manual preparation; and failed attempts. Maintain cumulative
-phase 01–07 effort against the proposed ten-engineer-day ceiling. For later
-gates identify their predeclared budget and remaining allowance.
+Record human time for backend setup, capture/adapter, policy review, handwritten
+proofs/lemmas, upstream runtime changes, repair, and independent review. Record
+agent attempts/tokens/elapsed time, CPU/memory/kernel/checker time, actual cost,
+failed work, and manual preparation separately.
+
+Compare cumulative phases 01–03 effort to their owner-reviewed ceiling; later
+phases use their recorded budgets. Include spend authority and remaining allowance
+where relevant. No paid-run authorization is implied by reading the roadmap.
 
 ## Blockers and deviations
 
-Give reproducible errors, retained inputs, unresolved obligations, and the
-smallest remaining task. Explain any approved plan, dependency, policy, or
-toolchain changes and invalidated evidence. If the gate failed, state which
-later phases must not start. Never relabel a reduced goal as the original pass.
+Give retained inputs, reproducible errors, unresolved obligations, and the smallest
+remaining task. Explain approved dependency, contract, backend/model, checker-policy,
+toolchain, or protocol changes and all evidence invalidated by them. Record unknown
+build inputs, nondeterminism, mismatches, and quarantine. State which dependent
+phases are blocked; never present a narrowed goal as passing the original gate.
 
-## Next agent entry point
+For a Lynx-owned limitation, include the minimal reproducer, ownership rationale,
+upstream issue URL or report draft location, and proposed fix/regression test.
+Record any offer to draft a patch, posting/implementation authority still needed,
+and the review/removal condition for any explicitly approved temporary workaround.
 
-- Next permitted phase (or same phase to resume):
+## Next entry point
+
+- Next permitted phase or same phase to resume:
 - Files and immutable artifacts to read first:
 - Exact smoke/replay command and expected outcome:
-- Interfaces and policy identities to preserve:
-- Open decisions requiring owner input, with concrete options prepared:
+- Required interfaces, obligations, contract, and policy identities to preserve:
+- Owner decisions needed, with concrete options and existing authority:
 
-The next agent verifies this handoff and current identities before editing.
+The next agent validates this handoff and current identities before editing.

@@ -1,196 +1,258 @@
 # Shared implementation contract
 
-Read this with [AGENTS.md](../AGENTS.md) for every phase. These are constraints
-derived from the research brief, with proposed file locations for planning.
-No module or command below should be described as implemented until it exists
-and its phase has passed.
+Read this with [AGENTS.md](../AGENTS.md) for every phase. Paths are proposed
+landing zones, not implemented APIs. Pudding owns security policy, controlled
+project capture, discovery/replay, evidence, worker isolation, and repair gates.
+Lynx owns program translation, runtime models, generated laws, and Lean checking.
 
-## Representation and trust
+## Backend and trust boundary
 
-Start with compiler-derived Core Erlang and HARP's sequential frame-stack
-semantics in Rocq. Initial HARP revision:
-`4a59339cdc5c9cff3a144732397d56dfa7378631`. Phase 01 must actually build it;
-the brief only audited source. Start from its Rocq 9.1 requirement and select an
-exact compatible stdpp version (upstream requires at least 1.12.0). Pin all
-transitive proof dependencies and execution environments. The upstream OTP 23
-tooling requirement does not imply OTP 29 compatibility.
+Use a pinned Lynx Git revision and its declared Lean toolchain. The initial
+source baseline is `99a6db764c154207cf3b28c35409d9b56c463357`, selecting Lean
+`leanprover/lean4:v4.35.0`; phase 01 must build and qualify it against the exact
+Elixir/OTP pins in `.tool-versions`. A local sibling checkout or host default
+is not a reproducible dependency. Record transitive inputs, licenses, platform,
+actual binaries, and checker identities. Do not patch installed dependencies.
 
-Pudding's build pins live in `.tool-versions`: Elixir 1.20.2 / OTP 29.0.2 at
-planning time. Use that file as the authority and verify the invoked binaries.
-HARP tooling and the host's default `PATH` are different environments. Do not
-silently update project pins to make a spike pass.
+Lynx reconstructs Core from BEAM debug information and translates it into Lean
+functions over `Lynx.Term`. Pure law predicates return an `Except` result; a law
+proves its expectation returns `true` whenever its requirement returns `true`.
+Exceptions and Lynx exhaustion are distinct from success. A successful-return
+law includes abstract termination on its stated domain. A `partial_fixpoint`
+annotation alone proves neither totality nor the law. Require the executable
+expectation to return `.ok Lynx.Term.true`, not raw equality of two computations
+that could both be exhausted. Requirements must themselves implement the accepted
+domain: a requirement that fails to return true silently removes that input.
 
-The initial extraction route reads BEAM `:debug_info` and invokes its recorded,
-allowlisted backend's `:core_v1` callback. It reconstructs Core; it does not
-recover the exact intermediate originally compiled into the BEAM. Bind the
-BEAM bytes, debug backend, options, reconstructed Core, importer output, and
-toolchain in the evidence. Missing debug information is a diagnostic failure.
-An alternative capture hook needs an explicit recorded design decision.
+Prefer `Lynx.Case` for direct fixture proofs and `Lynx.Laws.verify/2` for the
+product adapter. The latter accepts law modules or in-memory law BEAM binaries;
+it returns dependency-ordered reports and raises on translation/runner failures.
+All reports must succeed, and all required obligations must be present. Neither
+an empty report list, dependency-only success, absent law, nor cached empty
+`theorems` list establishes a required claim. Root law modules and captured
+callee modules are different roles: do not assume passing arbitrary dependency
+BEAMs as verification roots is supported. Resolve callees from the controlled
+capture workspace, never an incidental host code path.
 
-Import actual syntax under the formal evaluator/execution relation. Check
-binding, scope, arity, literals, evaluation order, failure branches, and the
-whole reachable call closure. A separately written mathematical function is a
-specification or proof aid until a checked relation connects it to that syntax.
-No LLM-authored replacement program may stand in for the imported implementation.
+Use public APIs and ordinary imports. Inspect generated Lean before writing
+proofs. A small revision-specific adapter to lower-level Lynx translation data
+is permitted only when public reports/debug output cannot supply necessary
+provenance or obligation checks; confine, test, and pin that coupling. Do not
+build a parallel Core importer, evaluator, BIF-summary engine, or theorem generator
+that bypasses Lynx. Proof helpers are allowed only when related by checked lemmas
+to the actual translated implementation. Never replace it with a hand-written
+safe function or edit generated Lean program bodies.
 
-Report five distinct trust layers: build capture; reconstruction/import;
-semantic definitions and BIF models; compiler/BEAM/runtime connection; and
-logical checking/policy. Differential agreement detects bugs but proves none of
-those layers universally correct. A theorem at Core is not a theorem about
-deployed BEAM/JIT execution. Keep HARP license obligations distinct from
-Pudding's MIT license and do not hand-edit a fetched dependency.
+Report these trust layers separately:
 
-## Supported-language policy
+1. Controlled source/build capture and binding to artifacts.
+2. BEAM debug backend, Core reconstruction, and Lynx translation.
+3. Lynx runtime definitions and modeled OTP operations.
+4. Compiler, executable BEAM/JIT, deployment, and environment connection.
+5. The accepted contract, theorem binding, Lean kernel, independent checkers,
+   and evidence-authority policy.
 
-The first subset is deterministic sequential lists, tuples, atoms, mathematical
-integers, statically resolved recursion, matching, and audited exceptions/BIFs.
-Binary values and operations enter only through phases 08–10. Maps exist
-upstream but are excluded until their behavior is audited for a selected target.
+Reconstructed Core is not the exact intermediate originally compiled. Debug
+information is not a proof of executable BEAM correspondence. Differential tests
+are finite bug detectors, not translation proofs. Independently checking Lean
+exports strengthens logical checking, not compiler/runtime correctness.
 
-Classify every reachable node, call, and primop. Allowlist by module, function,
-arity, argument domain, return/error behavior, and semantic-rule version.
-Upstream's `BNothing`/`undef` fallback must never give an unsupported OTP call
-an invented meaning. Statically resolve/import a cross-module body or bind a
-reviewed conditional summary to its implementation; otherwise report unsupported.
-Initially an unsupported operation anywhere in the reachable closure blocks
-the target. Excluding a branch later requires a checked reachability argument.
+## Initial supported scope
 
-Processes, mailboxes, ETS, filesystem effects, NIFs, dynamic loading, unresolved
-dynamic dispatch, richer bit syntax, Unicode semantics, and practical resource
-bounds are outside the initial backend. Use idealized sufficient memory,
-arbitrary finite bytes, and arbitrary-precision integers. Disclose excluded
-allocation failure, VM size limits, external termination, and scheduling
-starvation. Abstract totality is not a production denial-of-service bound.
+Start with deterministic pure sequential functions over finite byte binaries,
+lists, tuples, atoms, mathematical integers, and the operations actually reached
+by the validator and its executable policy. Reuse Lynx's binary/bitstring and
+library models from the beginning. Support is target-, domain-, toolchain-, and
+backend-revision-specific, not inferred from the breadth of Lynx's feature list.
+Inventory reachable translated calls, modeled BIFs, failure paths, and the law's
+purity. Broader Lynx support does not automatically enter Pudding's initial scope.
 
-## Result and contract model
+Missing translation/runtime support is unsupported; incomplete proofs, exhausted
+budgets, and undiagnosed mismatches are unknown. Do not classify every Lean error
+as unsupported or a real vulnerability. For a genuine Lynx-owned gap, follow
+[AGENTS.md's upstream-first policy](../AGENTS.md#lynx-limitations-upstream-first):
+minimize and report it upstream, offer a focused fix with regression coverage,
+and record the issue/draft in the handoff. Pudding integration bugs stay here;
+an unfinished proof is not automatically a backend limitation. Any temporary
+adapter/workaround, including private-interface coupling, needs explicit review
+and an upstream-linked removal condition rather than becoming a parallel backend.
+Scope/budget review precedes upstream implementation. Rebuild, recheck, and
+invalidate evidence after any backend/model change.
 
-Keep contract workflow state, evidence outcome, assumptions, conformance, and
-freshness distinct. Phase 02 must document their schema and presentation.
+A `cutoff` is allowed only when the original obligation proves the selected
+function unreachable: Lynx makes it raise uncatchable exhaustion, not an assumed
+result. Restrict proof configuration, imports, dynamic-call declarations,
+termination annotations, preludes, and postludes through trusted preparation.
+No custom axiom or conditional summary may silently stand in for real behavior.
+
+Processes, ETS, external filesystem/network/port effects, unmodeled native calls,
+dynamic loading, unresolved dispatch, Unicode policy, and practical resource
+bounds are outside the initial claim. Existing modeled BIFs remain trusted runtime
+definitions even if OTP implements them natively. Use idealized sufficient memory
+and arbitrary finite inputs; disclose allocation/VM limits and external termination.
+Abstract termination is not a production latency or denial-of-service guarantee.
+
+## Contracts and outcomes
+
+Contract approval is separate from proof generation. Store candidate and accepted
+policies separately; only explicit recorded authority can accept or revise one.
+Bind identity to executable definitions, domain, quantifiers, expected outcomes,
+assumptions, version, and acceptance provenance. A name such as `validate` or a
+successful test corpus cannot authorize a security claim.
+
+Use a reviewed executable policy translated alongside the implementation. Prefer
+an independent byte-oriented reference algorithm rather than a duplicate of the
+target's control flow. Review it against positive and negative policy cases.
+Any additional mathematical specification needs a checked connection to that
+translated predicate; otherwise disclose specification-translation trust.
 
 | Dimension | Required meaning |
 | --- | --- |
-| Contract state | Candidate/proposed and accepted policies have different authority; acceptance has an identity and provenance |
-| Evidence outcome | `proved`, `violation_reproduced`, `unsupported`, or `unknown`, following brief section 10 |
-| Assumptions | Explicit logical axioms, conditional library premises, trusted implementations, and environment exclusions |
-| Conformance | Tested agreement, observed disagreement, or unassessed; none means universal equivalence |
-| Freshness | Bound to the identified current build or stale; rechecking an old bundle proves only its old claim |
+| Contract state | Candidate/proposed versus accepted, with authority and identity |
+| Evidence outcome | `proved`, `violation_reproduced`, `unsupported`, or `unknown` |
+| Assumptions | Visible logical premises, runtime/model trust, environment exclusions |
+| Conformance | Tested agreement, observed disagreement, or unassessed |
+| Freshness | Current identified build versus stale evidence for an older build |
 
-Preserve AGENTS.md's explicit **proved**, **assumed**, **unsupported**, and
-**unknown** reporting contract. Display **assumed** premises as a separate,
-visible dimension alongside the brief's four evidence outcomes. An assumed
-summary cannot silently become a proved library implementation. Phase 02 must
-include examples of unconditional and conditional proofs, reproduced
-violations, unsupported code, and unknown attempts to make this distinction
-reviewable.
+Preserve AGENTS.md's visible **assumed** category as the assumptions dimension,
+not an automatic promotion to proved implementation behavior. Only phase 06's
+trusted evidence checker may issue a product `proved` receipt. Earlier direct
+Lynx proofs are feasibility artifacts. Require the exact accepted obligations,
+successful fresh elaboration/axiom audit, independent checking, current artifact
+binding, and no unresolved relevant conformance disagreement.
 
-Only the independent checker can authorize a proved outcome. A violation needs
-concrete replay on the identified uninstrumented BEAM artifact. A model-only
-witness is diagnostic until replay succeeds. Timeouts, exhausted fuel, missing
-proofs, checker errors, and unrecognized audit output never become success.
-Keep build/extraction failures separate from target exceptions in diagnostics;
-they yield no proved claim. A timeout is not proof of nontermination.
+A `violation_reproduced` needs concrete replay on the captured uninstrumented BEAM
+artifact. A model witness alone is diagnostic. No counterexample found, timeout,
+checker crash/fuel exhaustion, missing theorem, unknown audit output, or failed
+proof is a proof or a reproduced violation. A timeout is not nontermination proof.
+Separate build/extraction/checker errors from target exceptions. Required CI claims
+fail on any missing, pending, stale, unsupported, unknown, or violated obligation.
 
-Record the exact target/build, accepted contract and quantifiers, domain and
-bounds, normal/error outcomes, model/importer/checker versions, trusted
-operations, assumptions, checker result, exclusions, and evidence links.
-Conditional proofs display their premises beside the claim. Bounded proofs
-state the bounds in their theorem; exhaustive execution alone remains testing.
+## Archive-path policy
 
-Contracts include useful acceptance and totality where specified. Tests and
-inference nominate policy but do not accept it. Freeze accepted definitions,
-examples, versions, and acceptance provenance outside worker write authority.
-Connect executable oracles to formal predicates through shared restricted
-definitions or checked equivalence; otherwise disclose that additional trust.
+For a finite byte-aligned binary `b`, `split_slash(b)` splits at byte `0x2F`,
+preserving all empty components, including `split_slash(<<>>) = [<<>>]`.
+A path is valid exactly when every component is nonempty, is neither exact `.`
+nor exact `..`, and contains no NUL byte.
 
-## The archive policy to carry forward
+The binary interface must return exactly `{:ok, split_slash(b)}` when valid,
+and exactly `{:error, :invalid_path}` otherwise. Prove exact useful acceptance,
+rejection, output preservation, absence of unexpected exceptions/exhaustion,
+and termination for every finite binary. Do not assume validity in the main
+precondition; that would exclude malicious inputs. The intended direct law shape is:
 
-For a binary `b`, `split_slash(b)` splits on byte `0x2F`, preserving all empty
-components, including `split_slash(<<>>) = [<<>>]`. It is valid exactly when each
-component is nonempty, is neither exact `.` nor exact `..`, and has no NUL.
+```elixir
+requires: is_binary(input),
+expects: ArchivePath.validate(input) === PathPolicy.expected(input)
+```
 
-For every finite byte-aligned binary, the required result is exactly
-`{:ok, split_slash(b)}` when valid and `{:error, :invalid_path}` otherwise.
-Establish safety, exact positive acceptance, rejection, absence of unexpected
-exceptions/stuck states, and termination. The nonbinary wrapper returns
-`{:error, :not_binary}` and needs a separate obligation over its declared
-caller domain. Improper/nonbinary bitstrings are outside the binary theorem.
+`PathPolicy.expected/1` is the accepted, independently reviewed executable byte
+policy, not the implementation under another name. The wrapper separately returns
+`{:error, :not_binary}` for every nonbinary term in its declared domain, including
+nonbyte-aligned bitstrings when the domain covers all nonbinary terms.
 
 Invalid UTF-8 is allowed. Backslash and colon are ordinary bytes. No Unicode
-normalization, percent decoding, filesystem operation, symlink reasoning, or
-Windows-path guarantee is implied. Later reinterpretation needs composition.
-Retain the deliberately vulnerable fixture that rejects `../` but accepts `..`.
-It is synthetic; it is not a reproduction of the OTP ZIP advisory.
+normalization, percent decoding, filesystem/symlink behavior, Windows-path
+interpretation, or safe archive-extraction claim follows. Later consumers need
+composition obligations if they reinterpret accepted bytes.
 
-## Checker and worker separation
+Keep separate synthetic vulnerable and fixed fixtures. The vulnerable one rejects
+`../` but accepts `..`; it is not a reproduction of the historical OTP ZIP advisory.
+Reject-all, safe-output substitution, hidden stronger preconditions, and divergence
+cannot satisfy the full contract. Fixed examples and safety-only lemmas are useful
+proof aids but not the universal full-contract gate.
 
-The checker receives immutable captured/imported programs, accepted contracts,
-semantics, and policy from a trusted preparation path. Workers submit proof
-source and proposed source patches in separate workspaces. They cannot replace
-the expected theorem, contracts, generated program, checker scripts, or trusted
-dependencies. At checking time recompute/validate hashes and regenerate the
-expected theorem from those inputs; hashes alone cannot detect a wrong importer.
+## Checking and worker separation
 
-Compile proof source into ordinary objects. Generate an exact-type wrapper,
-audit transitive `Print Assumptions` against an explicit allowlist, enforce
-guard/positivity/universe checking, and run standalone `rocqchk` over the entire
-dependency closure without skip options. Reject unknown audit output,
-unfinished proofs, unauthorized axioms, worker-supplied plugins, and unsafe
-conversion. Start without `native_compute`. Record trusted conversion machinery.
-Rechecking must work without a model, solver service, or original agent session.
+Trusted preparation rebuilds accepted policy/law modules and selects captured
+implementation/dependencies from immutable inputs. It fixes required theorem
+names, exact predicates, domains, and allowed proof configuration before workers
+run. A worker may submit proof source, not a replacement law or verification request.
+Validate that the checked theorem references the expected translated definitions;
+a name match or a valid export of a different theorem is insufficient. Generate
+an exact-type wrapper or equivalent checked binding from trusted inputs and
+compare the required obligation inventory; do not trust worker-supplied theorem text.
 
-Use deterministic computation, simplification, rewriting, induction, `lia`, and
-reusable tactics first. Optional solver integrations require a demonstrated
-repeated need, compatible checked certificates, and justified encoding. `unsat`
-alone is not proof, and abduction cannot authorize new premises.
+Lynx's generated-law audit permits `propext`, `Quot.sound`, and `Classical.choice`.
+Pin and verify the actual policy. Reject `sorryAx`, unauthorized axioms, unsafe
+checking, substituted compiled artifacts, and uncontrolled imports/plugins. Lean
+tactics and elaborators execute code: kernel checking is not OS containment.
+Use enforced offline resource-limited environments with read-only trusted inputs,
+private scratch/caches, no unrelated credentials, and bounded output for builds,
+proof elaboration, independent checking, and target execution. Record platform
+limitations; `System.cmd` or a prompt restriction is not isolation.
 
-Patch workers can change allowed target source/test files only. Preserve original
-regressions and valid-input behavior. Rebuild, extract, and independently check
-the patch against the same accepted contract. A semantic or policy change is a
-separate reviewed change that invalidates evidence, never part of a repair.
+Call `Lynx.Laws.verify(..., export: fresh_path)` for evidence, which bypasses
+Lynx's verification cache at the baseline. Use a new empty per-attempt output
+location: a failed run can leave an older export untouched. Check every report,
+required declaration, and export binding before invoking the pinned toolchain's
+independent checkers. The baseline documented command shape is:
 
-## Build and evidence discipline
+```sh
+lake --dir deps/lynx/Lean check --paranoid --from-export "$EXPORT"
+```
 
-Compilation, macros, proof compilation, and target execution run in isolated,
-bounded environments without unrelated credentials. Fetch declared inputs
-first; disable network during the controlled build/check steps. Do not pretend
-that `System.cmd` alone provides isolation. Record actual enforcement and gaps.
+Qualify the exact command, output interpretation, closure/axiom coverage, and
+sandbox in phase 01/06. Linux `bwrap` is the baseline for bundled checker sandboxing;
+do not silently opt out on another platform. Outer isolation still covers build
+and proof elaboration. Checker fuel/resource limits are incomplete checking,
+never success. Rechecking must need neither a solver service nor the agent session.
 
-Initially store immutable per-build bundles and refuse reuse on identity change.
-Phase 17 adds a content-addressed graph with separate build and proof nodes.
-Capture source/generated contents, lockfile, path/Git dependency contents,
-toolchain/options, `MIX_ENV`, `MIX_TARGET`, compile-time configuration, macro and
-external resources, BEAM/debug data, Core, and imported terms. Proof dependencies
-include contracts, model, BIF summaries, lemmas, checker image/configuration, and
-assumption policy. Runtime configuration is an explicit input/assumption where
-relevant. Mix's dependency graph alone is insufficient.
+Patch workers write only allowed implementation/regression paths in isolated
+workspaces. They cannot edit accepted contracts, generated program bodies,
+backend/toolchain, checker, trusted lemmas, or receipt store. Rebuild and recheck
+every patch against the unchanged accepted policy; no automatic publication.
 
-Start invalidation at module granularity and propagate through dependent proofs,
-including runtime callees. Unknown build inputs disable cross-build cache reuse.
-Retain original artifacts even if source is unchanged. A semantic mismatch
-quarantines affected assurance: unknown while undiagnosed, unsupported pending
-correction once the gap is known. A separately replayed real violation remains
-a violation. Do not erase the old mathematical theorem or reassign it to a new
-build without a validated binding.
+## Build, conformance, and evidence discipline
+
+Fetch declared inputs before offline build/check. Capture source/generated bytes,
+lockfile, path/Git dependency contents, actual Elixir/OTP/Lean/Lynx/checker versions,
+`MIX_ENV`, `MIX_TARGET`, compiler options, compile-time configuration, external
+resources, BEAM/debug chunks, reconstructed Core where captured, translation output,
+law inventory, proof source, and source mappings. Runtime configuration is explicit
+where relevant. Validate/allowlist every debug backend before Lynx invokes it,
+including dependencies; reconstruction callbacks execute code.
+
+Use the exact capture during verification and replay. Initially disable evidence
+reuse on identity change. Record unknown build inputs and nondeterminism; Mix's
+dependency graph and source hashes alone are insufficient. Pin external Lean
+imports and all transitive proof dependencies, not just Lynx's normal cache key.
+A worker-writable cache or success JSON is not checker authority.
+
+Conformance compares concrete executions of the captured BEAM with the same
+translated implementation, including class/reason of supported exceptions.
+Prefer generated concrete Lynx laws against observed values over implementing
+a second evaluator. Qualify safe result encodings and any inspection bridge;
+exclude stacktrace equality where Lynx omits traces. Keep exhausted model runs,
+unsupported forms, and runtime timeouts distinct. Conformance is always finite.
+
+Retain minimized mismatches and quarantine all affected assurance. Undiagnosed
+mismatches are unknown; identified missing support is unsupported until corrected.
+Do not erase old mathematical theorems, but do not advertise them as current
+implementation evidence. A separately replayed real violation remains a violation.
+
+Phase 12 adds separate build/proof dependency nodes, module-level invalidation,
+and reviewed reuse. Preserve immutable earlier bundles and offline replay. Hashes
+bind artifacts, not semantic correctness. Receipts must list target/build, accepted
+contract and exact statements, domains/bounds, assumptions, model/checker policy,
+conformance, freshness, export/independent logs, and exclusions.
 
 ## Proposed landing zones
 
-These paths guide scope; reconcile them with actual code in each handoff.
-No new dependency is selected merely by listing it here.
-
-| Area | Proposed location |
+| Area | Location |
 | --- | --- |
-| Project/build capture and extraction | `lib/pudding/project/`, `lib/pudding/extraction/` |
-| Support analysis, import, executable-model bridge | `lib/pudding/core/`, `lib/pudding/backends/core_erlang/` |
-| Contracts, reports, evidence identities | `lib/pudding/contracts/`, `lib/pudding/result.ex`, `lib/pudding/evidence/` |
-| Checker and untrusted workers | `lib/pudding/checker/`, `lib/pudding/workers/` |
-| Discovery, generation, replay, shrinking | `lib/pudding/discovery/`, `lib/pudding/testing/` |
-| Mix entry points | `lib/mix/tasks/pudding.verify.ex` and narrowly scoped supporting tasks |
-| Owned proof extension, locks, build scripts | `proof/`; keep upstream source/license boundaries explicit |
-| Ordinary consumer fixtures and contract cases | `test/fixtures/projects/`, `test/fixtures/contracts/` |
+| Project capture and controlled execution | `lib/pudding/project/`, `lib/pudding/execution/` |
+| Lynx adapter and scoped support reporting | `lib/pudding/backends/lynx/` |
+| Policies, results, evidence | `lib/pudding/contracts/`, `lib/pudding/result.ex`, `lib/pudding/evidence/` |
+| Checker and constrained workers | `lib/pudding/checker/`, `lib/pudding/workers/` |
+| Candidate discovery and counterexample search | `lib/pudding/discovery/`, `lib/pudding/testing/` |
+| Mix task | `lib/mix/tasks/pudding.verify.ex` |
+| Owned laws, checked lemmas, replay/bootstrap assets | `proof/` |
+| Ordinary consumers and contract cases | `test/fixtures/projects/`, `test/fixtures/contracts/` |
 | Evaluation | `bench/` |
-| Design records, support matrix, replay instructions | `docs/verification/` |
+| Qualified interfaces and operator instructions | `docs/verification/` |
 
-Keep `reach` out of `lib/` and production code. Do not add an application or
-supervision tree until long-lived processes actually need one. Public library
-functions need named-argument typespecs, meaningful tests, and warning-free
-compilation. Use root AGENTS.md for checks and generated-rule handling.
+Keep `reach` out of `lib/`. Add no supervision tree until persistent processes
+actually require one. Do not invent a new contract DSL, general backend framework,
+or solver integration to avoid the first proof. Package required owned proof assets
+deliberately; the current package allowlist does not include `proof/` automatically.

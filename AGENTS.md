@@ -25,6 +25,40 @@ Those four result categories are a contract, not a formatting choice. Code that
 can't establish a property must say so — never let an unhandled case, a
 timeout, or an unsupported construct fall through to "proved".
 
+## Lynx limitations: upstream first
+
+Lynx owns Core-to-Lean translation, Erlang runtime models, and reusable public
+proof interfaces. Pudding owns security contracts, project capture, evidence,
+discovery, and repair workflows. When a limitation genuinely belongs in Lynx,
+**prefer a helpful upstream report and offer to draft a fix**, not a Pudding-side
+workaround or duplicate implementation.
+
+- **Establish ownership first.** Minimize the failure using public Lynx APIs and
+  check the pinned version, configuration, existing documentation, and relevant
+  upstream source/issues. Distinguish a Lynx bug, missing capability, or useful
+  public lemma from a Pudding integration bug, incorrect contract, or unfinished
+  proof. A failed proof alone is not a Lynx bug.
+- **Make the report actionable.** For a confirmed upstream gap, file or contribute
+  to an issue at [josevalim/lynx](https://github.com/josevalim/lynx), subject to
+  applicable publication permissions. Include a minimal shareable reproducer,
+  exact Lynx/Lean/Elixir/OTP versions, commands, expected versus actual behavior,
+  relevant diagnostics, and impact. Check for duplicates; label feature/proof-API
+  requests honestly. If posting is unavailable or not authorized, prepare the
+  report for the owner instead. Do not publish private code or sensitive security
+  details; coordinate disclosure where appropriate.
+- **Offer the smallest upstream solution.** Outline the likely fix, regression
+  test or checked lemma, affected public interfaces, and verification needed.
+  Offer to draft a patch/PR, following Lynx's own contribution/agent rules and
+  normal approval boundaries; do not edit installed/vendored dependencies.
+- **Do not hide the gap locally.** Avoid parallel semantics, private-interface
+  bypasses, hand-edited translations, or weakened claims to get past it. A narrow
+  temporary adapter/workaround requires explicit review, unchanged soundness and
+  contract, tests, and a removal condition tied to upstream resolution. Until
+  resolved, preserve accurate unsupported/unknown outcomes and blocked gates.
+- **Leave a trail, not duplicate docs.** Record the issue URL or draft location,
+  reproducer, proposed fix, and blocker in the phase handoff. A backend upgrade
+  still requires pinned identity, rechecking, and dependent-evidence invalidation.
+
 ## Commands
 
 Everything below is bundled into one alias. **Run `mix precommit` when you
