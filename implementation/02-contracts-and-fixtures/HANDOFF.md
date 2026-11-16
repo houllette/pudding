@@ -212,6 +212,38 @@ agent wall times into fabricated person-hours or present missing telemetry as fr
   deliberately cannot issue `proved`. Later phases remain blocked by phase 03's
   universal-proof/feasibility gate, not by passing this finite test corpus.
 
+## Pre-merge requirements review — 2026-11-16
+
+At the owner's request, re-audited all six Work items, five gate checks and every
+handoff-template section against the implementation, tests and retained evidence
+at `32d7a0b2999e0b90d647ef2ecbea1e0e5e63174e`. An independent read-only
+repository-scout review reached the same conclusion: **no missing phase 02 gate
+requirement**. Both source and evidence manifests verified in full before edits.
+Owner acceptance provenance remains a session transcription, not an authenticated
+signature; formal proofs and receipts remain explicitly outside this gate.
+
+One nonblocking documentation discrepancy was corrected: the roadmap introduction
+still said phases 02–13 were not started, although its phase table and this
+handoff recorded phase 02 passed. It now consistently says phases 01–02 are
+complete and phases 03–13 are not started. The source manifest's roadmap digest
+is refreshed for that documentation-only change; candidate, acceptance, policy,
+laws, implementations, toolchain and dependency pins are unchanged. The original
+validation logs remain unmodified.
+
+Remote CI was actually observed passing all six jobs for the original review
+head in [the PR CI run](https://github.com/houllette/pudding/actions/runs/43973662863).
+The initial title-only failure was fixed with a Conventional Commits title and
+its failed check rerun successfully; no technical failure was hidden. The fresh
+`mise exec -- mix precommit` exited 0: 14 root passes and eight production
+consumer passes (`review-precommit.log`). Dependency recompilation emitted yamerl
+catch deprecations, module-redefinition diagnostics and a deprecated xref option
+warning; none came from Pudding source or was suppressed. No new validator proof
+or receipt is inferred from this pass.
+This re-review started around `22:56Z`; active human time and parent-agent billing
+remain unmeasured. Its read-only scout used 3,147 output tokens and reported
+244,276 input tokens plus 14,592 cached-read tokens, at $0.390381 API-equivalent
+cost (not an actual invoice). No formal/checker job or policy revision occurred.
+
 ## Next entry point
 
 1. **Phase 03 — [validator proof](../03-validator-proof/README.md)**, and nothing

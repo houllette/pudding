@@ -7,8 +7,10 @@ and proof checking. Pudding does not maintain a second language semantics or
 translator.
 
 This remains a plan for the security verifier, not an implemented verifier.
-**Phase 01 is complete** with an evidence-backed
-[handoff](01-lynx-foundation/HANDOFF.md); phases **02–13 are not started**.
+**Phases 01–02 are complete** with evidence-backed handoffs:
+[01 — Lynx foundation](01-lynx-foundation/HANDOFF.md) and
+[02 — Contracts and fixtures](02-contracts-and-fixtures/HANDOFF.md).
+Phases **03–13 are not started**.
 The first security milestone remains an independently replayable proof of the
 actual binary path validator, before building a general adapter or autonomous worker.
 
