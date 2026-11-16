@@ -38,6 +38,7 @@ and [trust/bootstrap documentation](../../../../docs/verification/foundation.md)
 | `lean-LICENSE.txt.gz`, `lean-LICENSES.txt`, `license-digests.txt`, `lynx-LICENSE.txt` | Original release notices and source license, not a substitute for binary redistribution compliance |
 | `precommit-final.log`, `dialyzer.log` | Final local project checks after final qualification source/filename; both exited 0, Dialyzer zero errors |
 | `run-11-checker-failure.log` | Actual failure-before evidence: all six sandbox startups rejected missing `/run/user` under read-only root; fixed by provisioning an image mount point, not disabling sandbox |
+| `review-qualification.log`, `review-precommit.log`, `review-dialyzer.log`, `review-hex-build.log.gz` | Supplemental pre-merge review on the unchanged implementation: repeat clean six-kernel qualification passed in 68 s with identical full export; project/type checks passed; expected Hex runtime-Git packaging rejection retained losslessly (exit 1) |
 | `SHA256SUMS` | Integrity hashes of all retained files except itself; no independent signature or product receipt authority |
 
 `implementation-input-digests.txt` was checked against the final worktree before

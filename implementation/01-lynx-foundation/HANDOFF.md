@@ -95,6 +95,16 @@ Final commands/results (working directory: repository root):
   `mise exec -- mix format --check-formatted`, and `git diff --check` passed.
 - The archived source and all three retained qualification recipe files were
   byte-compared to the final worktree before committing; matches confirmed.
+- Pre-merge review repeated `sh proof/foundation/run.sh "$PWD/tmp/foundation-pr-review"`
+  against unchanged source/recipe inputs and the same qualified image: exit 0,
+  `FOUNDATION_GATE_PASSED`, `2026-11-16T21:57:48Z`–`21:58:56Z` (**68 s** whole
+  run). Four tests, all six kernels, the three-axiom audit and malformed-export
+  rejection passed again; the full fresh export had the same SHA256 as run 14.
+  `review-qualification.log` retains the complete new run. Review also verified
+  all original evidence/input/source hashes, source archive bytes and 539,149
+  complete export JSON records, and checked that the launcher rejects an existing
+  output directory. `mise exec -- mix precommit` and `mise exec -- mix dialyzer`
+  passed again; transcripts are `review-precommit.log` and `review-dialyzer.log`.
 
 Failure-before and packaging observations (not omitted from accounting):
 
@@ -112,9 +122,12 @@ Failure-before and packaging observations (not omitted from accounting):
   excludes nested projects in both load and ignore filters (load overrides ignore).
   Final precommit passed with the conventional filename.
 - Actual `mix hex.build` failed because runtime Git dependencies cannot be
-  published on Hex. Current supported consumption is Git/path, not Hex package
-  release; package qualification remains phase 13. No successful Hex build is
-  claimed.
+  published on Hex. Pre-merge review reproduced this with
+  `mise exec -- mix hex.build` from the repository root: exit 1, explicitly naming
+  `lynx` as excluded because only Hex packages can be dependencies. The complete
+  transcript is retained losslessly as `review-hex-build.log.gz` in the evidence
+  directory. Current supported consumption is Git/path, not Hex package release;
+  package qualification remains phase 13. No successful Hex build is claimed.
 - Remote CI and PR identities are recorded in the PR checks, not substituted
   for the local ARM64 independent-check evidence. See the final delivery report
   for the actual PR URL and observed remote status.
@@ -172,7 +185,8 @@ Parallel work overlaps; do not sum estimates into a precise person-hour total.
 | Upstream gaps/runtime changes | No Lynx source edits, dependency patches or upstream semantic work | Zero upstream patches; no unresolved Lynx issue confirmed |
 | Repair/setup failures | macOS lacks Linux bwrap; VM SELinux/proc, shared filesystem mounts, OTP archive format, origin mismatch, missing `/run/user`, log plumbing | Failed attempts retained/recorded; not excluded from effort |
 | Independent checking | Clean Linux six-kernel full-closure checking plus malformed-export control passed in final run 14 (and prior corrected runs 12–13) | Final whole run 92 s; checker-only CPU/wall/peak RSS not separately instrumented; limits explicit, not measurements |
-| Independent review | Two read-only repository-scout audits; latest found real sandbox mount-point failure | Reported API-equivalent cost $0.255624 + $0.297874 = $0.553498; not a billed invoice or full session cost |
+| Independent review | Initial two read-only repository-scout audits; latest found real sandbox mount-point failure | Reported API-equivalent cost $0.255624 + $0.297874 = $0.553498; not a billed invoice or full session cost |
+| Pre-merge review | Two further read-only audits of implementation/fail-closed controls and assignment/evidence completeness; no technical blocker, missing packaging transcript corrected | Combined 457,545 input / 8,640 output tokens, including repeated context; reported API-equivalent cost $0.930998, not actual billed spend; parent review tokens/time unknown |
 | Local project checks | Precommit, production build, consumer and Dialyzer; dependency security remediation | Actual log outcomes retained at completion; no paid external prover |
 
 Additional bootstrap/image/CPU/download/storage charges were not exposed by the
