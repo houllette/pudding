@@ -1,0 +1,15 @@
+{
+  "record_version": 1,
+  "contract_id": "pudding.archive_path.bytes/v1",
+  "state": "accepted",
+  "candidate_path": "test/fixtures/contracts/candidates/archive-path-v1.json",
+  "candidate_sha256": "f576679bad86234b75c59241be674e2cfab0bf0c704cdef8845f516057ea8d7f",
+  "authority": "Repository owner, explicit response in implementation session",
+  "approval_question_id": "question_01M7K84B82CTE2JE0E10XD1MS2",
+  "approval_question": "Do you explicitly accept contract pudding.archive_path.bytes/v1, candidate test/fixtures/contracts/candidates/archive-path-v1.json SHA256 f576679bad86234b75c59241be674e2cfab0bf0c704cdef8845f516057ea8d7f?",
+  "selected_option": "accept: Accept this exact contract identity",
+  "owner_response": {"answer":{"answers":[{"selected":["accept"]}]},"question_id":"question_01M7K84B82CTE2JE0E10XD1MS2"},
+  "recorded_at_utc": "2026-11-16T22:40:09Z",
+  "scope": "Explicit acceptance of only the exact candidate bytes, domains, executable predicate, required claims, assumptions and exclusions. Not approval of any other action, not proof or product receipt authority.",
+  "provenance_limit": "This repository record transcribes the session's explicit owner response. It is not a cryptographically authenticated signature or a phase 06 checker receipt."
+}

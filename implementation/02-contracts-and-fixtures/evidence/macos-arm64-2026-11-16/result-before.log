@@ -1,0 +1,102 @@
+Compiling 1 file (.ex)
+Generated pudding app
+Running ExUnit with seed: 77456, max_cases: 36
+
+
+
+  1) test contract acceptance, assumed premises, conformance and freshness stay independent (Pudding.ResultTest)
+     test/pudding/result_test.exs:70
+     ** (UndefinedFunctionError) function Pudding.Result.new/1 is undefined (module Pudding.Result is not available)
+     code: assert {:ok, result} = Result.new(attrs)
+     stacktrace:
+       Pudding.Result.new(%{reason: :stale_evidence, target: "example-build-sha256", schema_version: 1, outcome: :unknown, authority: :observation, contract: %{id: "archive-path/v1", state: :accepted}, assumptions: ["Conditional premise", "Runtime model trust"], conformance: :tested_agreement, freshness: :stale, required_claims: ["binary_contract/1", "nonbinary_wrapper/1"], established_claims: [], evidence: []})
+       test/pudding/result_test.exs:80: (test)
+
+
+
+  2) test replayed violation, unsupported construct and timeout are different outcomes (Pudding.ResultTest)
+     test/pudding/result_test.exs:43
+     ** (UndefinedFunctionError) function Pudding.Result.new/1 is undefined (module Pudding.Result is not available)
+     code: for attrs <- examples do
+     stacktrace:
+       Pudding.Result.new(%{reason: :replayed_violation, target: "example-build-sha256", schema_version: 1, outcome: :violation_reproduced, authority: :observation, contract: %{id: "archive-path/v1", state: :candidate}, assumptions: ["Idealized sufficient memory; no filesystem interpretation"], conformance: :unassessed, freshness: :current, required_claims: ["binary_contract/1", "nonbinary_wrapper/1"], established_claims: [], evidence: ["replay.log"]})
+       test/pudding/result_test.exs:51: anonymous fn/1 in Pudding.ResultTest."test replayed violation, unsupported construct and timeout are different outcomes"/1
+       (elixir 1.20.2) lib/enum.ex:1725: Enum."-map/2-lists^map/1-1-"/2
+       test/pudding/result_test.exs:50: (test)
+
+
+
+  3) test unknown enums, missing fields, extra fields and mismatched evidence fail closed (Pudding.ResultTest)
+     test/pudding/result_test.exs:98
+     ** (UndefinedFunctionError) function Pudding.Result.new/1 is undefined (module Pudding.Result is not available)
+     code: for attrs <- invalid do
+     stacktrace:
+       Pudding.Result.new(%{reason: :not_run, target: "example-build-sha256", schema_version: 1, outcome: :success, authority: :observation, contract: %{id: "archive-path/v1", state: :candidate}, assumptions: ["Idealized sufficient memory; no filesystem interpretation"], conformance: :unassessed, freshness: :current, required_claims: ["binary_contract/1", "nonbinary_wrapper/1"], established_claims: [], evidence: []})
+       test/pudding/result_test.exs:119: anonymous fn/2 in Pudding.ResultTest."test unknown enums, missing fields, extra fields and mismatched evidence fail closed"/1
+       (elixir 1.20.2) lib/enum.ex:2622: Enum."-reduce/3-lists^foldl/2-0-"/3
+       test/pudding/result_test.exs:118: (test)
+
+
+
+  4) test no caller can mint a proved result before the trusted checker exists (Pudding.ResultTest)
+     test/pudding/result_test.exs:88
+     ** (UndefinedFunctionError) function Pudding.Result.new/1 is undefined (module Pudding.Result is not available)
+     code: assert {:error, :receipt_authority_unavailable} = Result.new(example(%{outcome: :proved}))
+     stacktrace:
+       Pudding.Result.new(%{reason: :not_run, target: "example-build-sha256", schema_version: 1, outcome: :proved, authority: :observation, contract: %{id: "archive-path/v1", state: :candidate}, assumptions: ["Idealized sufficient memory; no filesystem interpretation"], conformance: :unassessed, freshness: :current, required_claims: ["binary_contract/1", "nonbinary_wrapper/1"], established_claims: [], evidence: []})
+       test/pudding/result_test.exs:89: (test)
+
+
+
+  5) test direct and conditional proofs remain unknown without receipt authority (Pudding.ResultTest)
+     test/pudding/result_test.exs:26
+     ** (UndefinedFunctionError) function Pudding.Result.new/1 is undefined (module Pudding.Result is not available)
+     code: for reason <- [:direct_proof_without_receipt, :conditional_proof] do
+     stacktrace:
+       Pudding.Result.new(%{reason: :direct_proof_without_receipt, target: "example-build-sha256", schema_version: 1, outcome: :unknown, authority: :direct_lynx, contract: %{id: "archive-path/v1", state: :candidate}, assumptions: ["Idealized sufficient memory; no filesystem interpretation"], conformance: :unassessed, freshness: :current, required_claims: ["binary_contract/1", "nonbinary_wrapper/1"], established_claims: ["binary_contract/1", "nonbinary_wrapper/1"], evidence: ["example/export.ndjson"]})
+       test/pudding/result_test.exs:36: anonymous fn/2 in Pudding.ResultTest."test direct and conditional proofs remain unknown without receipt authority"/1
+       (elixir 1.20.2) lib/enum.ex:2622: Enum."-reduce/3-lists^foldl/2-0-"/3
+       test/pudding/result_test.exs:27: (test)
+
+
+
+  6) test stale, missing obligation and conformance disagreement cannot be proof (Pudding.ResultTest)
+     test/pudding/result_test.exs:58
+     ** (UndefinedFunctionError) function Pudding.Result.new/1 is undefined (module Pudding.Result is not available)
+     code: for attrs <- [
+     stacktrace:
+       Pudding.Result.new(%{reason: :stale_evidence, target: "example-build-sha256", schema_version: 1, outcome: :unknown, authority: :observation, contract: %{id: "archive-path/v1", state: :candidate}, assumptions: ["Idealized sufficient memory; no filesystem interpretation"], conformance: :unassessed, freshness: :stale, required_claims: ["binary_contract/1", "nonbinary_wrapper/1"], established_claims: [], evidence: []})
+       test/pudding/result_test.exs:64: anonymous fn/2 in Pudding.ResultTest."test stale, missing obligation and conformance disagreement cannot be proof"/1
+       (elixir 1.20.2) lib/enum.ex:2622: Enum."-reduce/3-lists^foldl/2-0-"/3
+       test/pudding/result_test.exs:59: (test)
+
+    warning: Pudding.Result.new/1 is undefined (module Pudding.Result is not available or is yet to be defined)
+    │
+ 36 │       assert {:ok, result} = Result.new(attrs)
+    │                                     ~
+    │
+    └─ test/pudding/result_test.exs:36:37: Pudding.ResultTest."test direct and conditional proofs remain unknown without receipt authority"/1
+    └─ test/pudding/result_test.exs:51:37: Pudding.ResultTest."test replayed violation, unsupported construct and timeout are different outcomes"/1
+    └─ test/pudding/result_test.exs:64:37: Pudding.ResultTest."test stale, missing obligation and conformance disagreement cannot be proof"/1
+    └─ test/pudding/result_test.exs:80:35: Pudding.ResultTest."test contract acceptance, assumed premises, conformance and freshness stay independent"/1
+    └─ test/pudding/result_test.exs:89:62: Pudding.ResultTest."test no caller can mint a proved result before the trusted checker exists"/1
+    └─ test/pudding/result_test.exs:92:21: Pudding.ResultTest."test no caller can mint a proved result before the trusted checker exists"/1
+    └─ test/pudding/result_test.exs:119:41: Pudding.ResultTest."test unknown enums, missing fields, extra fields and mismatched evidence fail closed"/1
+    └─ test/pudding/result_test.exs:122:47: Pudding.ResultTest."test unknown enums, missing fields, extra fields and mismatched evidence fail closed"/1
+
+    warning: Pudding.Result.proved?/1 is undefined (module Pudding.Result is not available or is yet to be defined)
+    │
+ 39 │       refute Result.proved?(result)
+    │                     ~
+    │
+    └─ test/pudding/result_test.exs:39:21: Pudding.ResultTest."test direct and conditional proofs remain unknown without receipt authority"/1
+    └─ test/pudding/result_test.exs:54:21: Pudding.ResultTest."test replayed violation, unsupported construct and timeout are different outcomes"/1
+    └─ test/pudding/result_test.exs:66:21: Pudding.ResultTest."test stale, missing obligation and conformance disagreement cannot be proof"/1
+    └─ test/pudding/result_test.exs:94:19: Pudding.ResultTest."test no caller can mint a proved result before the trusted checker exists"/1
+    └─ test/pudding/result_test.exs:95:19: Pudding.ResultTest."test no caller can mint a proved result before the trusted checker exists"/1
+
+
+Finished in 0.2 seconds (0.2s async, 0.00s sync)
+
+Result: 0/6 passed
+Failed: 6 tests

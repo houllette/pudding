@@ -15,6 +15,20 @@ reporting of what is **proved**, **assumed**, **unsupported**, or **unknown**.
 The [implementation plan](implementation/README.md) organizes the work into ordered
 phases for dedicated agent runs, with validation gates and handoff requirements.
 
+## Phase 02 interfaces
+
+The [accepted archive-path byte contract](test/fixtures/contracts/README.md) has
+an independent executable reference, `Pudding.Contracts.PathPolicy.expected/1`,
+and [ordinary vulnerable/fixed consumer fixtures](test/fixtures/projects/archive_path/README.md).
+Boundary and negative-control tests exercise exact results; the initial full-domain
+Lynx laws are **not completed proofs**. No filesystem or safe-extraction guarantee
+is claimed.
+
+[`Pudding.Result`](docs/verification/results.md) defines a versioned observation
+schema with separate outcome, assumed premises, approval, conformance and freshness.
+It cannot issue `proved` receipts. Universal validator proof is Phase 03; trusted
+product evidence checking is Phase 06.
+
 ## Development
 
 Erlang and Elixir versions are pinned in [`.tool-versions`](https://github.com/houllette/pudding/blob/main/.tool-versions);
@@ -35,9 +49,10 @@ mix precommit                         # everything CI checks, in one go
 
 `mix precommit` runs the dependency audits, a warnings-as-errors compile,
 formatting, Credo, the usage-rules sync, the compile-time dependency check,
-docs, and the tests. Run it before opening a PR — a green `precommit` means a
-green CI. Dialyzer is slow, so it runs in CI only; run `mix dialyzer` locally
-when you want it.
+docs, the root tests, and ordinary production archive-path consumer qualification.
+Run it before opening a PR; CI also runs Dialyzer and platform-specific checks,
+so a local pass alone does not establish a green remote CI run. Dialyzer is slow,
+so it runs in CI only by default; run `mix dialyzer` locally when you want it.
 
 ## Agent tooling
 

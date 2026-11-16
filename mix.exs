@@ -62,7 +62,7 @@ defmodule Pudding.MixProject do
   defp docs do
     [
       main: "readme",
-      extras: ["README.md"],
+      extras: ["README.md", "docs/verification/results.md"],
       source_ref: "v#{@version}"
     ]
   end
@@ -102,7 +102,9 @@ defmodule Pudding.MixProject do
         "usage_rules.sync --yes",
         "xref graph --label compile-connected --fail-above 0",
         "docs --warnings-as-errors",
-        "test --warnings-as-errors"
+        "test --warnings-as-errors",
+        # Ordinary :prod consumer; Reach must remain unavailable at runtime.
+        "cmd --cd test/fixtures/projects/archive_path env MIX_ENV=prod mix do deps.get + compile --warnings-as-errors + run qualification.exs"
       ]
     ]
   end

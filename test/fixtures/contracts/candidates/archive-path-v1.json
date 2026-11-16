@@ -1,0 +1,60 @@
+{
+  "record_version": 1,
+  "contract_id": "pudding.archive_path.bytes/v1",
+  "state": "candidate",
+  "proposal_authority": "agent-prepared from implementation/ARCHITECTURE.md; not owner approval",
+  "binary_domain": "All finite byte-aligned BEAM binaries; no length bound or validity precondition",
+  "wrapper_domain": "Every nonbinary BEAM term, including nonbyte-aligned bitstrings",
+  "quantifier": "For every input in each domain",
+  "policy": {
+    "split": "Split at byte 0x2F preserving every empty component; empty input splits to [<<>>]",
+    "valid": "Every component is nonempty, not exact 0x2E or 0x2E2E, and contains no 0x00",
+    "valid_result": "Exactly {:ok, split_slash(input)}, with identical component bytes and order",
+    "invalid_result": "Exactly {:error, :invalid_path}",
+    "nonbinary_result": "Exactly {:error, :not_binary}",
+    "totality": "Returns the exact result without unexpected exception or exhaustion for every domain input, under idealized sufficient memory"
+  },
+  "executable_policy": {
+    "path": "lib/pudding/contracts/path_policy.ex",
+    "sha256": "ce441a804adfa0e91b2cb26b707408db7ae1921d573ed5e76edae8b74af5d8b5",
+    "entry": "Pudding.Contracts.PathPolicy.expected/1",
+    "split": "Pudding.Contracts.PathPolicy.split_slash/1"
+  },
+  "initial_law_source": {
+    "path": "test/fixtures/projects/archive_path/lib/laws.ex",
+    "sha256": "c7779d866d45bb7f5836f2483ebe64c39d821cc38add745138174ce7489edf9a"
+  },
+  "required_claims": [
+    {
+      "id": "ArchivePath.Laws.binary_contract/1",
+      "requires": "is_binary(input)",
+      "expects": "ArchivePath.Fixed.validate(input) === Pudding.Contracts.PathPolicy.expected(input)",
+      "expected_lean_theorem": "Elixir.ArchivePath.Laws.laws.\u00abbinary_contract/1\u00bb",
+      "expected_lean_requires": "Elixir.ArchivePath.Laws.\u00abbinary_contract:requires/1\u00bb",
+      "expected_lean_ensures": "Elixir.ArchivePath.Laws.\u00abbinary_contract:ensures/1\u00bb"
+    },
+    {
+      "id": "ArchivePath.Laws.nonbinary_wrapper/1",
+      "requires": "not is_binary(input)",
+      "expects": "ArchivePath.Fixed.validate(input) === {:error, :not_binary}",
+      "expected_lean_theorem": "Elixir.ArchivePath.Laws.laws.\u00abnonbinary_wrapper/1\u00bb",
+      "expected_lean_requires": "Elixir.ArchivePath.Laws.\u00abnonbinary_wrapper:requires/1\u00bb",
+      "expected_lean_ensures": "Elixir.ArchivePath.Laws.\u00abnonbinary_wrapper:ensures/1\u00bb"
+    }
+  ],
+  "expectation_semantics": "The translated expectation must return Except.ok Lynx.Term.true, not equality between potentially exhausted computations",
+  "assumptions": [
+    "Idealized sufficient memory for arbitrary finite inputs; no practical runtime or denial-of-service bound",
+    "BEAM compiler/runtime, debug-info Core reconstruction, Lynx translation and reached runtime models are trust dependencies, not validated by this policy review",
+    "A later formal result additionally trusts its stated Lean/checker/toolchain closure and permitted standard axioms"
+  ],
+  "exclusions": [
+    "Unicode decoding or normalization; invalid UTF-8 remains ordinary bytes",
+    "Percent decoding; backslash and colon have no special interpretation",
+    "Filesystem, symlink, Windows path, ZIP archive or safe extraction semantics",
+    "Process, ETS, network, ports, native effects and deployment/resource guarantees"
+  ],
+  "approval_rule": "Only explicit owner acceptance of this candidate SHA256 creates an accepted record; no test, law, proof or agent proposal can approve it",
+  "reapproval_rule": "Changes to policy bytes, domains, quantifiers, required predicates, outputs, assumptions or exclusions need a new candidate and explicit approval. Implementation/proof-only changes need fresh artifact binding, exact unchanged-predicate review and rechecking; they cannot weaken this contract. Initial law-source hashes identify these prepared bytes, not future proof artifacts.",
+  "proof_status": "No universal proof, exported closure, conformance guarantee or product receipt; Lean identities above are required expected names pending generated-statement inspection in phase 03"
+}
