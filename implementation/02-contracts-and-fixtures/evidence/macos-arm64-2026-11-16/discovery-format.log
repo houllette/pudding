@@ -1,0 +1,12 @@
+Running ExUnit with seed: 426746, max_cases: 36
+
+..............
+Finished in 0.03 seconds (0.03s async, 0.00s sync)
+
+Result: 14 passed (1 doctest, 13 tests)
+Running ExUnit with seed: 933097, max_cases: 36
+
+..............
+Finished in 0.03 seconds (0.03s async, 0.00s sync)
+
+Result: 14 passed (1 doctest, 13 tests)

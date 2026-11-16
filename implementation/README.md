@@ -43,7 +43,7 @@ still runs.
 | Phase | Deliverable | Gate |
 | --- | --- | --- |
 | [01 — Lynx foundation](01-lynx-foundation/README.md) | Pinned backend/toolchain, clean build, trust inventory | **Passed** — [handoff/evidence](01-lynx-foundation/HANDOFF.md); ordinary consumer verifies and independently rechecks a small law on Linux ARM64 |
-| [02 — Contracts and fixtures](02-contracts-and-fixtures/README.md) | Reviewed byte policy, vulnerable/fixed Mix fixtures, result schema | Exact positive/negative behavior and policy authority are explicit |
+| [02 — Contracts and fixtures](02-contracts-and-fixtures/README.md) | Reviewed byte policy, vulnerable/fixed Mix fixtures, result schema | **Passed** — [handoff/evidence](02-contracts-and-fixtures/HANDOFF.md); exact byte behavior, full-domain initial laws, and explicit owner acceptance; no universal proof yet |
 | [03 — Validator proof](03-validator-proof/README.md) | Direct Lynx proof of the real binary validator and wrapper | Full contract independently replays; first go/no-go decision |
 | [04 — Build capture](04-build-capture/README.md) | Isolated ordinary-project capture and immutable manifests | Actual target/dependency artifacts and build inputs are bound |
 | [05 — Lynx backend adapter](05-lynx-backend-adapter/README.md) | Thin adapter, support inventory, targeted conformance checks | Exact required claims run against captured code; mismatches quarantine evidence |
