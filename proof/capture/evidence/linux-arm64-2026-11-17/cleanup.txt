@@ -1,0 +1,16 @@
+Review capture/replay cleanup observation
+Tue Nov 17 16:04:44 UTC 2026
+
+Containers (unrelated services preserved):
+jump-redis
+jump-db
+buildx_buildkit_podman
+
+Volumes (unrelated volumes preserved):
+4e1f4fd3944e189a9954a61f3455eebdda4e0768ed4f94defa5f0413bff3a2bb
+05ebf91d79060da37a9da1e89392e0f61f48dc08ee1b2af35c404611393ee1ce
+905abe9862d16d931b5d37e6833467a9fefe5577f3e2e4a72bd5010cc6a40165
+89675304cd6acbd3d48d18165d73bb8b171d34af8931c91cf9ac3a28f26c8c97
+api_pgdata
+api_redisdata
+buildx_buildkit_podman_state

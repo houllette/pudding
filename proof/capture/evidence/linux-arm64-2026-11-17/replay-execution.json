@@ -1,0 +1,1 @@
+{"assurance":"fixture_qualification_not_receipt","build":"ffffd3bce480fc4feb0524d79ff4b8036ac3d502142c74fcf465f6bc0aeca672","elapsed_ms":150308,"inputs":"d48ea6b765ab91132f6f8de3718cbc82e141a409daf0a2ef75b7d4ba3d04e5db","limits":{"artifact_bytes":134217728,"memory":"6g","output_bytes":2097152,"pids":256,"wall_ms":1200000,"workspace":"4g"},"phase_04_gate":"blocked","result":":ok"}
