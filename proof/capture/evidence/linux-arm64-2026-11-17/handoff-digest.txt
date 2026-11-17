@@ -1,0 +1,1 @@
+e4010526c6a5ba5f93743d14c5bb59a36055dc3d5c1db9f0a9d851ebe762e656  implementation/04-build-capture/HANDOFF.md

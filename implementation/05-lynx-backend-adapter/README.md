@@ -1,6 +1,8 @@
 # Phase 05 — Integrate Lynx reports, support, and conformance
 
-**State:** Not started.
+**State:** Blocked — not started. Phase 04's supported-API closure gate has not
+passed; see [its handoff](../04-build-capture/HANDOFF.md). Successful fixture-only
+retained-BEAM replay does not permit starting this phase.
 
 **Depends on:** Passed phases 01–04 and current prerequisite handoffs.
 

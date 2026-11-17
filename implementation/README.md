@@ -11,7 +11,9 @@ This remains a plan for the security verifier, not an implemented verifier.
 [01 — Lynx foundation](01-lynx-foundation/HANDOFF.md),
 [02 — Contracts and fixtures](02-contracts-and-fixtures/HANDOFF.md), and
 [03 — Validator proof](03-validator-proof/HANDOFF.md).
-Phases **04–13 are not started**.
+**Phase 04 is partially delivered and blocked** on supported Lynx closure
+inspection; see [its handoff](04-build-capture/HANDOFF.md). Phases **05–13 remain
+not started and blocked** by that gate.
 The first feasibility milestone is now met: the actual binary path validator's
 full accepted contract and nonbinary wrapper independently replay. These direct
 model proofs are not product receipts or verified translation; general capture,
@@ -50,8 +52,8 @@ still runs.
 | [01 — Lynx foundation](01-lynx-foundation/README.md) | Pinned backend/toolchain, clean build, trust inventory | **Passed** — [handoff/evidence](01-lynx-foundation/HANDOFF.md); ordinary consumer verifies and independently rechecks a small law on Linux ARM64 |
 | [02 — Contracts and fixtures](02-contracts-and-fixtures/README.md) | Reviewed byte policy, vulnerable/fixed Mix fixtures, result schema | **Passed** — [handoff/evidence](02-contracts-and-fixtures/HANDOFF.md); exact byte behavior, full-domain initial laws, and explicit owner acceptance; no universal proof yet |
 | [03 — Validator proof](03-validator-proof/README.md) | Direct Lynx proof of the real binary validator and wrapper | **Passed** — [handoff/evidence](03-validator-proof/HANDOFF.md); both full-domain laws independently replay through six checkers on Linux ARM64; go to Phase 04 |
-| [04 — Build capture](04-build-capture/README.md) | Isolated ordinary-project capture and immutable manifests | Actual target/dependency artifacts and build inputs are bound |
-| [05 — Lynx backend adapter](05-lynx-backend-adapter/README.md) | Thin adapter, support inventory, targeted conformance checks | Exact required claims run against captured code; mismatches quarantine evidence |
+| [04 — Build capture](04-build-capture/README.md) | Isolated ordinary-project capture and immutable manifests | **Blocked / partial** — [handoff/evidence](04-build-capture/HANDOFF.md); capture and fixed-byte replay qualified, supported Lynx closure inspection still required |
+| [05 — Lynx backend adapter](05-lynx-backend-adapter/README.md) | Thin adapter, support inventory, targeted conformance checks | **Blocked by Phase 04**; exact required claims must run against captured code and mismatches quarantine evidence |
 | [06 — Evidence checker](06-evidence-checker/README.md) | Isolated exact-contract checking and durable receipts | Hostile submissions, stale exports, and substituted inputs fail closed |
 | [07 — Discovery and counterexamples](07-discovery-and-counterexamples/README.md) | Minimal Mix task, generation, shrinking, BEAM replay | Real violation retained; no-counterexample remains unknown without proof |
 | [08 — Bounded proof worker](08-bounded-proof-worker/README.md) | Untrusted proof proposals behind the checker | Budgets and write boundaries enforced; worker cannot approve claims |

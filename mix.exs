@@ -40,7 +40,7 @@ defmodule Pudding.MixProject do
   # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:logger, :crypto]
     ]
   end
 
@@ -55,7 +55,7 @@ defmodule Pudding.MixProject do
       links: %{"GitHub" => @source_url},
       # Explicit, because Hex's default includes priv/, where the Dialyzer PLT
       # lives. .gitignore doesn't apply to packages.
-      files: ~w(lib .formatter.exs mix.exs README.md LICENSE)
+      files: ~w(lib priv/capture .formatter.exs mix.exs README.md LICENSE)
     ]
   end
 

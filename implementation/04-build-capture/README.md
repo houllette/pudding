@@ -1,6 +1,15 @@
 # Phase 04 — Capture isolated builds and implementation provenance
 
-**State:** Not started.
+**State:** Blocked — partial capture/isolation delivery; original closure gate not passed.
+
+See [HANDOFF.md](HANDOFF.md) for exact retained identities and validation, and
+[UPSTREAM.md](UPSTREAM.md) for the supported-API request, posted as
+[josevalim/lynx#20](https://github.com/josevalim/lynx/issues/20). The owner chose
+upstream-first inspection rather than a private Lynx translation bridge. Captured
+fixed-byte fixture replay is qualification, not a general closure or receipt.
+Phase 05 may not begin. This partial delivery is shelved for later resumption in a
+**draft Pudding PR** on `phase04-isolated-capture-draft`; it is not ready to merge.
+Start with the handoff's [shelving/resume section](HANDOFF.md#shelved-draft--start-here).
 
 **Depends on:** Passed phases 01–03 and current prerequisite handoffs.
 
