@@ -22,8 +22,8 @@ phases for dedicated agent runs, with validation gates and handoff requirements.
 an independent executable reference, `Pudding.Contracts.PathPolicy.expected/1`,
 and [ordinary vulnerable/fixed consumer fixtures](test/fixtures/projects/archive_path/README.md).
 The fixed validator's full-domain binary law and separate nonbinary wrapper law
-are now [proved and independently replayed through six checkers](implementation/03-validator-proof/HANDOFF.md).
-[Proof sources, controls and replay instructions](proof/validator/README.md) retain
+are now [proved and independently replayed through six checkers](https://github.com/houllette/pudding/blob/main/implementation/03-validator-proof/HANDOFF.md).
+[Proof sources, controls and replay instructions](https://github.com/houllette/pudding/blob/main/proof/validator/README.md) retain
 the exact accepted policy, normal-return obligations and artifact identities.
 These are direct model proofs, not verified compiler/translation correspondence,
 a filesystem or safe-extraction guarantee, or product `proved` receipts.
