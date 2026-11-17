@@ -135,6 +135,35 @@ This pre-existing release/packaging gap remains explicit, not suppressed or
 misreported as a package pass; product packaging is Phase 13. No package was
 published or dependency policy changed.
 
+## Phase 03 question closure
+
+A follow-up audit checked the Phase 03 assignment, shared architecture, handoff
+requirements and prerequisite decisions against the proof sources and retained
+evidence, rather than relying on the completion checkboxes. Two read-only source
+reviews found no mathematical or required-gate blocker. This was a source/evidence
+audit, not a new independent-kernel run or human proof review.
+
+| Question required by the end of Phase 03 | Answer and evidence |
+| --- | --- |
+| Can the ordinary compiled binary validator satisfy the entire accepted policy, not just safety examples? | **Yes.** `lemmas.lean` connects the translated reference and scanner to the same arbitrary-byte specification, proving exact ordered components or exact rejection. See [proof design](../../proof/validator/README.md#proof-and-exact-domain), generated definitions and both required theorem records in the [retained inventory](../../proof/validator/evidence/linux-arm64-2026-11-16/claim-inventory.json). |
+| Does equality hide exceptions or exhaustion, or assume malicious inputs away? | **No.** Both computations return normally; the executable expectation returns `.ok true`. The binary requirement is exactly `is_binary`, with no validity, length or fuel premise. This establishes abstract totality under sufficient memory, not practical latency/allocation bounds. |
+| Is the wrapper complete, including nonbyte-aligned bitstrings? | **Yes.** Its independent proof cases over every `Lynx.Term` constructor and bit alignment; its requirement is exactly `not is_binary` and result exactly `{:error, :not_binary}`. Both laws must be present together. |
+| Are the accepted policy and actual implementation preserved, and is existing Lynx support sufficient? | **Yes.** Frozen candidate/reference identities and normalized law ASTs are tested; compiled implementation bytes are retained. The checked mathematical specification is connected to the generated executable definitions, not substituted for them. Public postlude/runtime APIs suffice; private helpers add no axioms, model patches, generated-body edits or unresolved upstream gap. See the [reached-operation inventory](../../proof/validator/README.md#reached-operations-and-purity). |
+| Do concrete failures and substitution controls distinguish useful correctness from a vacuous pass? | **Yes.** Identified BEAM bytes replay vulnerable `..` acceptance and reject-all/changed-output witnesses. Missing/empty/cached/skipped claims and `sorryAx` fail completion. A stronger guard is rejected by exact domain/statement binding, independently of its unfinished proof attempt; failed elaboration alone is not a counterexample or a general guard-substitution detector. See the [harness](../../test/fixtures/projects/archive_path/proof_qualification_test.exs). |
+| Can fresh full exports replay independently from clean retained inputs? | **Yes on qualified Linux ARM64.** Both exact laws, all six accepting checkers, the standard-three-axiom audit, clean offline build, enforced limits and malformed/tampered controls are retained in the [manifest and logs](../../proof/validator/evidence/linux-arm64-2026-11-16/MANIFEST.md). Some tamper rejections panic, as disclosed; arbitrary hostile-export robustness is not qualified. |
+| Is the proof feasible within the approved cumulative budget, and what effort remains unknown? | **Go.** The inherited Phase 01–03 authority is uncapped; session/run/checker timing, resources, manual work and failures are recorded below and in prerequisite handoffs. Human labor, full token/billing totals and isolated per-kernel CPU measurements are unknown, not zero. No economics or autonomous-proof-performance result is inferred. |
+| What remains trusted or unresolved, and does anything block Phase 04? | **No unresolved Phase 03 blocker.** Compiler/debug reconstruction, Lynx translation/models, tool builds and manual records remain trusted. General capture, conformance/receipt authority and hostile submission hardening are later gates. The known Hex Git-dependency packaging failure remains a Phase 13 release gate; verified translation, deployment, filesystem and practical resource guarantees are not claimed. |
+
+The root README's stale “not completed proofs” status was corrected in this
+follow-up; no proof, implementation, contract, qualification script or retained
+input identity changed. The original six-check CI run at implementation head
+`c98d8af0e51bdc9c3aafc229a66729b3e13b2165`
+[passed](https://github.com/houllette/pudding/actions/runs/43982593855), including
+the exact proof/control regression. Distributed tests and Sobelow were inapplicable
+and skipped. Follow-up-head CI results are recorded on the PR; neither run is
+independent-platform qualification. No new owner decision is required to close
+Phase 03, and no Phase 04 work is authorized by this audit.
+
 ## Claims and trust
 
 **Evidence outcome:** direct, independently checked model proofs for the two
