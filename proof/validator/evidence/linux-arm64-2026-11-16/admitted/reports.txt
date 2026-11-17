@@ -1,0 +1,39 @@
+[
+  %{
+    module: "Elixir.ArchivePath.AdmittedLaws",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/archive_path/lib/controls.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 3
+  },
+  %{
+    module: "Elixir.ArchivePath.AdmittedLaws.laws",
+    status: :error,
+    file: "/scratch/work/test/fixtures/projects/archive_path/lib/controls.ex",
+    cached: false,
+    theorems: [%{name: "admitted/0", time_ms: 43}],
+    diagnostics: [
+      %{
+        line: 54,
+        message: "declaration uses `sorry`",
+        module: "Elixir.ArchivePath.AdmittedLaws.laws",
+        file: "/scratch/work/test/fixtures/projects/archive_path/lib/controls.ex",
+        column: 7,
+        severity: :warning,
+        declaration: "admitted/0"
+      },
+      %{
+        line: 57,
+        message: "unexpected axiom: sorryAx",
+        module: "Elixir.ArchivePath.AdmittedLaws.laws",
+        file: "/scratch/work/test/fixtures/projects/archive_path/lib/controls.ex",
+        column: 5,
+        severity: :error,
+        declaration: "admitted/0"
+      }
+    ],
+    time_ms: 176
+  }
+]

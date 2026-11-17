@@ -1,0 +1,47 @@
+[
+  %{
+    module: "Elixir.ArchivePath.Controls",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/archive_path/lib/controls.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 4
+  },
+  %{
+    module: "Elixir.Pudding.Contracts.PathPolicy",
+    status: :ok,
+    file: "/scratch/work/lib/pudding/contracts/path_policy.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 225
+  },
+  %{
+    module: "Elixir.ArchivePath.RejectAllLaws",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/archive_path/lib/controls.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 186
+  },
+  %{
+    module: "Elixir.ArchivePath.RejectAllLaws.laws",
+    status: :error,
+    file: "/scratch/work/test/fixtures/projects/archive_path/lib/controls.ex",
+    cached: false,
+    theorems: [%{name: "binary_contract/1", time_ms: 41}],
+    diagnostics: [
+      %{
+        line: 18,
+        message: "Tactic `rfl` failed: The left-hand side\n  «binary_contract:ensures/1» input\nis not definitionally equal to the right-hand side\n  Except.ok Lynx.Term.true\n\ninput : Lynx.Term\nrequires : «binary_contract:requires/1» input = Except.ok Lynx.Term.true\n⊢ «binary_contract:ensures/1» input = Except.ok Lynx.Term.true",
+        module: "Elixir.ArchivePath.RejectAllLaws.laws",
+        file: "/scratch/work/test/fixtures/projects/archive_path/lib/controls.ex",
+        severity: :error,
+        declaration: "binary_contract/1"
+      }
+    ],
+    time_ms: 182
+  }
+]

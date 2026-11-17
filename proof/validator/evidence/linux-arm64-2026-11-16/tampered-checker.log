@@ -1,0 +1,53 @@
+Running Lean paranoid kernel on solution
+Lean paranoid kernel rejected the solution
+Running lean4lean kernel on solution
+PANIC at _private.Lean.Environment.0.Lean.EnvExtension.getStateImpl Lean.Environment:1376:4: invalid environment extension has been accessed
+backtrace:
+/opt/lean/bin/lean4lean(+0x1631c00) [0xaaaab4be1c00]
+/opt/lean/bin/lean4lean(+0x16288ac) [0xaaaab4bd88ac]
+/opt/lean/bin/lean4lean(+0x16289c0) [0xaaaab4bd89c0]
+/opt/lean/bin/lean4lean(+0x6e9ff4) [0xaaaab3c99ff4]
+/opt/lean/bin/lean4lean(+0x73eb0c) [0xaaaab3ceeb0c]
+/opt/lean/bin/lean4lean(+0x74596c) [0xaaaab3cf596c]
+/opt/lean/bin/lean4lean(+0x1638334) [0xaaaab4be8334]
+/opt/lean/bin/lean4lean(+0x747ec4) [0xaaaab3cf7ec4]
+/opt/lean/bin/lean4lean(+0x748b74) [0xaaaab3cf8b74]
+/opt/lean/bin/lean4lean(+0x748acc) [0xaaaab3cf8acc]
+/opt/lean/bin/lean4lean(+0x748b74) [0xaaaab3cf8b74]
+/opt/lean/bin/lean4lean(+0x748b60) [0xaaaab3cf8b60]
+/opt/lean/bin/lean4lean(+0x748b60) [0xaaaab3cf8b60]
+/opt/lean/bin/lean4lean(+0x749600) [0xaaaab3cf9600]
+/opt/lean/bin/lean4lean(+0x58d7c0) [0xaaaab3b3d7c0]
+/opt/lean/bin/lean4lean(+0x58fc40) [0xaaaab3b3fc40]
+/opt/lean/bin/lean4lean(+0x591a84) [0xaaaab3b41a84]
+/opt/lean/bin/lean4lean(+0x592bd0) [0xaaaab3b42bd0]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x592b6c) [0xaaaab3b42b6c]
+/opt/lean/bin/lean4lean(+0x594d98) [0xaaaab3b44d98]
+/opt/lean/bin/lean4lean(+0x49fe3c) [0xaaaab3a4fe3c]
+/opt/lean/bin/lean4lean(+0x1602108) [0xaaaab4bb2108]
+/opt/lean/bin/lean4lean(+0x1602834) [0xaaaab4bb2834]
+/lib/aarch64-linux-gnu/libc.so.6(+0x8595c) [0xffff8e06595c]
+/lib/aarch64-linux-gnu/libc.so.6(+0xebb4c) [0xffff8e0cbb4c]
+lean4lean kernel rejected the solution
+Running nanoda kernel on solution
+
+thread 'thread_2' (5) panicked at src/tc.rs:955:71:
+assertion failed: self.def_eq(u, v)
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'main' (2) panicked at src/tc.rs:173:26:
+A thread in `check_all_declars` panicked while being joined: Any { .. }
+nanoda kernel rejected the solution
+Running con-leche kernel on solution
+con-leche: invalid: type mismatch in theorem Elixir.ArchivePath.Laws.laws.binary_contract/1 [at theorem Elixir.ArchivePath.Laws.laws.binary_contract/1, fold position 5457] (--verified) t=1.9s
+con-leche kernel rejected the solution
+Running con-ron kernel on solution
+con-ron: rejected: type mismatch in theorem [at theorem Elixir.ArchivePath.Laws.laws.binary_contract/1, fold position 5457] (--verified) t=0.913s
+con-ron kernel rejected the solution
+Running Lean default kernel on solution
+error: Lean paranoid exited with 1
+Lean default kernel rejected the solution

@@ -15,19 +15,23 @@ reporting of what is **proved**, **assumed**, **unsupported**, or **unknown**.
 The [implementation plan](implementation/README.md) organizes the work into ordered
 phases for dedicated agent runs, with validation gates and handoff requirements.
 
-## Phase 02 interfaces
+## Completed phases and interfaces
 
-The [accepted archive-path byte contract](test/fixtures/contracts/README.md) has
+**Phases 01–03 are complete.** The
+[accepted archive-path byte contract](test/fixtures/contracts/README.md) has
 an independent executable reference, `Pudding.Contracts.PathPolicy.expected/1`,
 and [ordinary vulnerable/fixed consumer fixtures](test/fixtures/projects/archive_path/README.md).
-Boundary and negative-control tests exercise exact results; the initial full-domain
-Lynx laws are **not completed proofs**. No filesystem or safe-extraction guarantee
-is claimed.
+The fixed validator's full-domain binary law and separate nonbinary wrapper law
+are now [proved and independently replayed through six checkers](https://github.com/houllette/pudding/blob/main/implementation/03-validator-proof/HANDOFF.md).
+[Proof sources, controls and replay instructions](https://github.com/houllette/pudding/blob/main/proof/validator/README.md) retain
+the exact accepted policy, normal-return obligations and artifact identities.
+These are direct model proofs, not verified compiler/translation correspondence,
+a filesystem or safe-extraction guarantee, or product `proved` receipts.
 
 [`Pudding.Result`](docs/verification/results.md) defines a versioned observation
 schema with separate outcome, assumed premises, approval, conformance and freshness.
-It cannot issue `proved` receipts. Universal validator proof is Phase 03; trusted
-product evidence checking is Phase 06.
+It cannot issue `proved` receipts. General build capture begins in Phase 04;
+trusted product evidence checking remains Phase 06. Phases 04–13 are not started.
 
 ## Development
 

@@ -28,9 +28,13 @@ It exits nonzero on failures. `mix test --warnings-as-errors` is also supported;
 root test discovery deliberately does not load this standalone project's tests.
 Root `mix precommit` and CI run production qualification explicitly.
 
-**No universal proof yet.** The initial `Lynx.Laws` definitions use the default
-initial proof attempt, not completed proofs. Phase 02 runs their executable BEAM
-assertions only; no `Lynx.Laws.verify/2`, exports or independent checker runs are
-claimed. Phase 03 must inspect generated Lean statements, prove total successful
-expectation return, qualify both promised domains and independently replay the
-complete required proof closure. This fixture does not create product receipts.
+**Universal model proofs now independently replay.** Phase 03 adds checked
+postlude proofs for both exact full-domain obligations, fresh export and statement
+inspection, BEAM negative-control witnesses, and clean offline Linux ARM64 replay
+through all six independent/paranoid checkers. See the
+[proof recipe](../../../../proof/validator/README.md) and
+[Phase 03 handoff](../../../../implementation/03-validator-proof/HANDOFF.md).
+The initial accepted predicates and implementation bytes are unchanged. These are
+direct feasibility artifacts, not verified translation or product receipts.
+CI also runs the proof/control harness, but is not the qualified independent
+checker environment.

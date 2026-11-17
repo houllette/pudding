@@ -1,0 +1,263 @@
+No retired or security advisory packages found
+No vulnerabilities found.
+==> earmark_parser
+Compiling 3 files (.erl)
+Compiling 32 files (.ex)
+Generated earmark_parser app
+==> file_system
+Compiling 7 files (.ex)
+Generated file_system app
+==> mime
+Compiling 1 file (.ex)
+Generated mime app
+==> nimble_options
+Compiling 3 files (.ex)
+Generated nimble_options app
+==> bunt
+Compiling 2 files (.ex)
+Generated bunt app
+Build completed successfully (67 jobs).
+==> lynx
+Compiling 1 file (.erl)
+Compiling 8 files (.ex)
+Generated lynx app
+==> jason
+Compiling 10 files (.ex)
+Generated jason app
+==> hpax
+Compiling 4 files (.ex)
+Generated hpax app
+==> mint
+Compiling 1 file (.erl)
+Compiling 21 files (.ex)
+Generated mint app
+==> pudding
+===> Failed to restore /Users/holden/Documents/pudding/deps/yamerl/_build/prod/lib/.rebar3/rebar_compiler_erl/source.dag file. Discarding it.
+
+===> Analyzing applications...
+===> Compiling yamerl
+/Users/holden/Documents/pudding/deps/yamerl/src/yamerl_node_binary.erl:65:9: Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+%   65|    case catch base64:decode(Text) of
+%     |         ^
+
+/Users/holden/Documents/pudding/deps/yamerl/src/yamerl_node_binary.erl:72:9: Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+%   72|    case catch base64:decode(Text) of
+%     |         ^
+
+/Users/holden/Documents/pudding/deps/yamerl/src/yamerl_constr.erl:801:5: Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+%  801|     catch Mod:module_info(),
+%     |     ^
+
+     ┌─ src/yamerl_constr.erl:
+     │
+ 801 │      catch Mod:module_info(),
+     │      ╰── Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+
+
+    ┌─ src/yamerl_node_binary.erl:
+    │
+ 65 │     case catch base64:decode(Text) of
+    │          ╰── Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+
+    ┌─ src/yamerl_node_binary.erl:
+    │
+ 72 │     case catch base64:decode(Text) of
+    │          ╰── Warning: 'catch ...' is deprecated; please use 'try ... catch ... end' instead.
+Compile directive 'nowarn_deprecated_catch' can be used to suppress
+warnings in selected modules.
+
+
+==> erlex
+Compiling 2 files (.erl)
+Compiling 2 files (.ex)
+Generated erlex app
+==> owl
+Compiling 19 files (.ex)
+Generated owl app
+==> sourceror
+Compiling 20 files (.ex)
+Generated sourceror app
+==> ex_ast
+Compiling 36 files (.ex)
+Generated ex_ast app
+==> text_diff
+Compiling 1 file (.ex)
+Generated text_diff app
+==> yaml_elixir
+Compiling 6 files (.ex)
+    warning: redefining module YamlElixir.Mapper (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/yaml_elixir/ebin/Elixir.YamlElixir.Mapper.beam)
+    │
+  1 │ defmodule YamlElixir.Mapper do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/yaml_elixir/mapper.ex:1: YamlElixir.Mapper (module)
+
+    warning: redefining module YamlElixir (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/yaml_elixir/ebin/Elixir.YamlElixir.beam)
+    │
+  1 │ defmodule YamlElixir do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/yaml_elixir.ex:1: YamlElixir (module)
+
+Generated yaml_elixir app
+==> mix_audit
+Compiling 16 files (.ex)
+    warning: redefining module Mix.Tasks.Deps.Audit (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/mix_audit/ebin/Elixir.Mix.Tasks.Deps.Audit.beam)
+    │
+  1 │ defmodule Mix.Tasks.Deps.Audit do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/mix/tasks/deps/audit.ex:1: Mix.Tasks.Deps.Audit (module)
+
+    warning: redefining module MixAudit.Audit (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/mix_audit/ebin/Elixir.MixAudit.Audit.beam)
+    │
+  1 │ defmodule MixAudit.Audit do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/mix_audit/audit.ex:1: MixAudit.Audit (module)
+
+    warning: redefining module MixAudit.CLI (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/mix_audit/ebin/Elixir.MixAudit.CLI.beam)
+    │
+  1 │ defmodule MixAudit.CLI do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/mix_audit/cli.ex:1: MixAudit.CLI (module)
+
+    warning: redefining module MixAudit.CLI.Audit (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/mix_audit/ebin/Elixir.MixAudit.CLI.Audit.beam)
+    │
+  1 │ defmodule MixAudit.CLI.Audit do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/mix_audit/cli/audit.ex:1: MixAudit.CLI.Audit (module)
+
+    warning: redefining module MixAudit.Formatting (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/mix_audit/ebin/Elixir.MixAudit.Formatting.beam)
+    │
+  1 │ defmodule MixAudit.Formatting do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/mix_audit/formatting.ex:1: MixAudit.Formatting (module)
+
+    warning: redefining module MixAudit.Formatting.Human (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/mix_audit/ebin/Elixir.MixAudit.Formatting.Human.beam)
+    │
+  1 │ defmodule MixAudit.Formatting.Human do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/mix_audit/formatting/human.ex:1: MixAudit.Formatting.Human (module)
+
+    warning: redefining module MixAudit.Project (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/mix_audit/ebin/Elixir.MixAudit.Project.beam)
+    │
+  1 │ defmodule MixAudit.Project do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/mix_audit/project.ex:1: MixAudit.Project (module)
+
+    warning: redefining module MixAudit.Repo (current version loaded from /Users/holden/Documents/pudding/_build/test/lib/mix_audit/ebin/Elixir.MixAudit.Repo.beam)
+    │
+  1 │ defmodule MixAudit.Repo do
+    │ ~~~~~~~~~~~~~~~~~~~~~~~~~~
+    │
+    └─ lib/mix_audit/repo.ex:1: MixAudit.Repo (module)
+
+Generated mix_audit app
+==> spitfire
+Compiling 2 files (.erl)
+Compiling 5 files (.ex)
+Generated spitfire app
+==> libgraph
+Compiling 15 files (.ex)
+Generated libgraph app
+==> nimble_parsec
+Compiling 4 files (.ex)
+Generated nimble_parsec app
+==> makeup
+Compiling 15 files (.ex)
+Generated makeup app
+==> makeup_elixir
+Compiling 6 files (.ex)
+Generated makeup_elixir app
+==> makeup_erlang
+Compiling 4 files (.ex)
+Generated makeup_erlang app
+==> ex_doc
+Compiling 30 files (.ex)
+Generated ex_doc app
+==> pudding
+===> Failed to restore /Users/holden/Documents/pudding/deps/telemetry/_build/prod/lib/.rebar3/rebar_compiler_erl/source.dag file. Discarding it.
+
+===> Analyzing applications...
+===> Compiling telemetry
+==> reach
+Compiling 287 files (.ex)
+Generated reach app
+==> dialyxir
+Compiling 70 files (.ex)
+Generated dialyxir app
+==> glob_ex
+Compiling 4 files (.ex)
+Generated glob_ex app
+warning: "xref: [exclude: ...]" in your mix.exs file is deprecated, instead use: "elixirc_options: [no_warn_undefined: ...]"
+  (mix 1.20.2) lib/mix/tasks/compile.elixir.ex:243: Mix.Tasks.Compile.Elixir.xref_exclude_opts/2
+  (mix 1.20.2) lib/mix/tasks/compile.elixir.ex:142: Mix.Tasks.Compile.Elixir.run/1
+  (mix 1.20.2) lib/mix/task.ex:502: anonymous fn/3 in Mix.Task.run_task/5
+  (mix 1.20.2) lib/mix/task.compiler.ex:299: Mix.Task.Compiler.run_compiler/2
+  (mix 1.20.2) lib/mix/task.compiler.ex:287: Mix.Task.Compiler.run/4
+  (mix 1.20.2) lib/mix/tasks/compile.all.ex:75: Mix.Tasks.Compile.All.do_run/2
+
+==> rewrite
+Compiling 13 files (.ex)
+Generated rewrite app
+==> credo
+Compiling 257 files (.ex)
+Generated credo app
+==> nimble_pool
+Compiling 2 files (.ex)
+Generated nimble_pool app
+==> finch
+Compiling 23 files (.ex)
+Generated finch app
+==> req
+Compiling 24 files (.ex)
+Generated req app
+==> igniter
+Compiling 62 files (.ex)
+Generated igniter app
+==> usage_rules
+Compiling 8 files (.ex)
+Generated usage_rules app
+==> pudding
+Compiling 3 files (.ex)
+Generated pudding app
+Checking 21 source files ...
+
+Please report incorrect results: https://github.com/rrrene/credo/issues
+
+Analysis took 0.07 seconds (0.02s to load, 0.05s running 69 checks on 21 files)
+67 mods/funs, found no issues.
+
+Use `mix credo explain` to explain issues, `mix credo --help` for options.
+Generating docs...
+View html docs at "doc/index.html"
+View markdown docs at "doc/llms.txt"
+View epub docs at "doc/Pudding.epub"
+Running ExUnit with seed: 864952, max_cases: 36
+
+..............
+Finished in 0.03 seconds (0.03s async, 0.00s sync)
+
+Result: 14 passed (1 doctest, 13 tests)
+Running ExUnit with seed: 461152, max_cases: 36
+
+........
+Finished in 0.00 seconds (0.00s async, 0.00s sync)
+
+Result: 8 passed

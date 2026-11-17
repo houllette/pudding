@@ -19,10 +19,49 @@ defmodule Pudding.Contracts.IdentityTest do
     assert accepted["selected_option"] == "accept: Accept this exact contract identity"
     assert candidate["state"] == "candidate"
 
-    for source <- [candidate["executable_policy"], candidate["initial_law_source"]] do
-      bytes = @root |> Path.join(source["path"]) |> File.read!()
-      assert sha256(bytes) == source["sha256"], source["path"]
+    policy = candidate["executable_policy"]
+    assert sha256(File.read!(Path.join(@root, policy["path"]))) == policy["sha256"]
+
+    # The immutable candidate binds Phase 02's initial law bytes. Phase 03 adds
+    # proofs only; compare executable law ASTs independently of those proofs.
+    initial = File.read!(Path.join(@root, "proof/validator/contract/initial-laws.ex.txt"))
+    current = File.read!(Path.join(@root, candidate["initial_law_source"]["path"]))
+    assert sha256(initial) == candidate["initial_law_source"]["sha256"]
+    assert law_statements(current) == law_statements(initial)
+    assert length(law_statements(current)) == 3
+
+    bindings =
+      @root
+      |> Path.join("proof/validator/contract/proof-inputs.json")
+      |> File.read!()
+      |> :json.decode()
+
+    for {path, digest} <- bindings do
+      assert sha256(File.read!(Path.join(@root, path))) == digest, path
     end
+  end
+
+  defp law_statements(source) do
+    {_ast, statements} =
+      source
+      |> Code.string_to_quoted!()
+      |> Macro.prewalk([], fn
+        {:law, _, [call, opts]} = ast, acc ->
+          statement = {call, Keyword.take(opts, [:requires, :expects])}
+
+          {normalized, _} =
+            Macro.prewalk(statement, nil, fn
+              {name, metadata, args}, state when is_list(metadata) -> {{name, [], args}, state}
+              node, state -> {node, state}
+            end)
+
+          {ast, [normalized | acc]}
+
+        ast, acc ->
+          {ast, acc}
+      end)
+
+    statements
   end
 
   defp sha256(bytes), do: :sha256 |> :crypto.hash(bytes) |> Base.encode16(case: :lower)

@@ -1,8 +1,8 @@
 defmodule ArchivePath.Laws do
   @moduledoc """
-  Phase 02 obligations, not completed proofs. Lynx's default `rfl` is merely the
-  initial proof attempt; no verification or product receipt is claimed here.
-  The reference implementation is separate from this law module.
+  Accepted full-domain obligations. Proof sources live under proof/validator;
+  verification requires its shared checked postlude. These are direct Lynx
+  feasibility artifacts, never Pudding product receipts.
   """
   use Lynx.Laws
 
@@ -11,13 +11,15 @@ defmodule ArchivePath.Laws do
   @spec binary_contract(input :: binary()) :: true
   law(binary_contract(input),
     requires: is_binary(input),
-    expects: ArchivePath.Fixed.validate(input) === PathPolicy.expected(input)
+    expects: ArchivePath.Fixed.validate(input) === PathPolicy.expected(input),
+    proof: ~LEAN"exact ArchivePathProof.binary_contract input requires"
   )
 
   @spec nonbinary_wrapper(input :: term()) :: true
   law(nonbinary_wrapper(input),
     requires: not is_binary(input),
-    expects: ArchivePath.Fixed.validate(input) === {:error, :not_binary}
+    expects: ArchivePath.Fixed.validate(input) === {:error, :not_binary},
+    proof: ~LEAN"exact ArchivePathProof.nonbinary_wrapper input requires"
   )
 end
 

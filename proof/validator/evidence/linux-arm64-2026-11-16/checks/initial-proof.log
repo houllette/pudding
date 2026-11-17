@@ -1,0 +1,67 @@
+[
+  %{
+    module: "Elixir.Pudding.Contracts.PathPolicy",
+    status: :ok,
+    file: "/Users/holden/Documents/pudding/lib/pudding/contracts/path_policy.ex",
+    cached: false,
+    diagnostics: [],
+    time_ms: 244,
+    theorems: []
+  },
+  %{
+    module: "Erlang.lists",
+    status: :ok,
+    file: "/Users/runner/work/otp_builds/otp_builds/tmp/otp_builds/otp-OTP-29.0.2-src/lib/stdlib/src/lists.erl",
+    cached: false,
+    diagnostics: [],
+    time_ms: 206,
+    theorems: []
+  },
+  %{
+    module: "Elixir.ArchivePath.Fixed",
+    status: :ok,
+    file: "/Users/holden/Documents/pudding/test/fixtures/projects/archive_path/lib/fixed.ex",
+    cached: false,
+    diagnostics: [],
+    time_ms: 300,
+    theorems: []
+  },
+  %{
+    module: "Elixir.ArchivePath.Laws",
+    status: :ok,
+    file: "/Users/holden/Documents/pudding/test/fixtures/projects/archive_path/lib/laws.ex",
+    cached: false,
+    diagnostics: [],
+    time_ms: 218,
+    theorems: []
+  },
+  %{
+    module: "Elixir.ArchivePath.Laws.laws",
+    status: :error,
+    file: "/Users/holden/Documents/pudding/test/fixtures/projects/archive_path/lib/laws.ex",
+    cached: false,
+    diagnostics: [
+      %{
+        line: 12,
+        message: "Tactic `rfl` failed: The left-hand side\n  «binary_contract:ensures/1» input\nis not definitionally equal to the right-hand side\n  Except.ok Lynx.Term.true\n\ninput : Lynx.Term\nrequires : «binary_contract:requires/1» input = Except.ok Lynx.Term.true\n⊢ «binary_contract:ensures/1» input = Except.ok Lynx.Term.true",
+        module: "Elixir.ArchivePath.Laws.laws",
+        file: "/Users/holden/Documents/pudding/test/fixtures/projects/archive_path/lib/laws.ex",
+        severity: :error,
+        declaration: "binary_contract/1"
+      },
+      %{
+        line: 18,
+        message: "Tactic `rfl` failed: The left-hand side\n  «nonbinary_wrapper:ensures/1» input\nis not definitionally equal to the right-hand side\n  Except.ok Lynx.Term.true\n\ninput : Lynx.Term\nrequires : «nonbinary_wrapper:requires/1» input = Except.ok Lynx.Term.true\n⊢ «nonbinary_wrapper:ensures/1» input = Except.ok Lynx.Term.true",
+        module: "Elixir.ArchivePath.Laws.laws",
+        file: "/Users/holden/Documents/pudding/test/fixtures/projects/archive_path/lib/laws.ex",
+        severity: :error,
+        declaration: "nonbinary_wrapper/1"
+      }
+    ],
+    time_ms: 220,
+    theorems: [
+      %{name: "binary_contract/1", time_ms: 42},
+      %{name: "nonbinary_wrapper/1", time_ms: 1}
+    ]
+  }
+]

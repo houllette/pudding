@@ -1,0 +1,40 @@
+{
+  "description": "Manually extracted required theorem records from the complete original export; expression indexes refer to that export, not a standalone proof. Transitive audit is in checker.log.",
+  "declaration_record_counts": {
+    "inductive": 160,
+    "def": 1853,
+    "thm": 3483,
+    "axiom": 3,
+    "opaque": 1
+  },
+  "required_theorems": [
+    {
+      "name": "Elixir.ArchivePath.Laws.laws.binary_contract/1",
+      "export_record": {
+        "thm": {
+          "all": [
+            36668
+          ],
+          "levelParams": [],
+          "name": 36668,
+          "type": 625507,
+          "value": 633773
+        }
+      }
+    },
+    {
+      "name": "Elixir.ArchivePath.Laws.laws.nonbinary_wrapper/1",
+      "export_record": {
+        "thm": {
+          "all": [
+            36676
+          ],
+          "levelParams": [],
+          "name": 36676,
+          "type": 632737,
+          "value": 633827
+        }
+      }
+    }
+  ]
+}

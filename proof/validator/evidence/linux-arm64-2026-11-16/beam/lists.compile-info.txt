@@ -1,0 +1,14 @@
+[
+  version: ~c"9.0.6",
+  options: [
+    :debug_info,
+    {:i, ~c"/OTP/subdir/lib/stdlib/src/../include"},
+    {:i, ~c"/OTP/subdir/lib/stdlib/src/../../kernel/include"},
+    :warn_missing_doc_function,
+    :warn_missing_doc_callback,
+    :warn_missing_spec_documented,
+    :warn_deprecated_catch,
+    :warn_obsolete_bool_op
+  ],
+  source: ~c"/OTP/subdir/lib/stdlib/src/lists.erl"
+]

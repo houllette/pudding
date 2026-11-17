@@ -1,6 +1,7 @@
 # Phase 03 — Prove the actual binary validator directly with Lynx
 
-**State:** Not started.
+**State:** Complete — [handoff and qualification evidence](HANDOFF.md).
+The five gates below passed for the full accepted contract on Linux ARM64.
 
 **Depends on:** Passed phases 01–02 and current prerequisite handoffs.
 
@@ -55,16 +56,16 @@ independent replay recipe/logs, negative controls, and first feasibility decisio
 
 ## Validation and handoff gate
 
-- [ ] The actual fixed binary interface satisfies the accepted full-domain law;
+- [x] The actual fixed binary interface satisfies the accepted full-domain law;
   exact acceptance/output and rejection are proved, with totality accounted for.
-- [ ] The accepted nonbinary wrapper obligation independently checks, including
+- [x] The accepted nonbinary wrapper obligation independently checks, including
   its stated bitstring coverage. No domain is silently reduced.
-- [ ] The original `..` violation replays on identified BEAM bytes; reject-all and
+- [x] The original `..` violation replays on identified BEAM bytes; reject-all and
   changed output cannot satisfy the original policy; missing/weakened laws do
   not count as completion.
-- [ ] Fresh exports, statement identities, assumptions, and independent-check logs
+- [x] Fresh exports, statement identities, assumptions, and independent-check logs
   replay from a clean environment without editing generated program bodies.
-- [ ] Explicit feasibility decision and cumulative effort/budget are recorded;
+- [x] Explicit feasibility decision and cumulative effort/budget are recorded;
   blockers stop downstream phases; `mix precommit` passes.
 
 Write `HANDOFF.md` using the [template](../HANDOFF_TEMPLATE.md), with exact

@@ -1,0 +1,59 @@
+[
+  %{
+    module: "Elixir.Pudding.Contracts.PathPolicy",
+    status: :ok,
+    file: "/scratch/work/lib/pudding/contracts/path_policy.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 193
+  },
+  %{
+    module: "Erlang.lists",
+    status: :ok,
+    file: "/OTP/subdir/lib/stdlib/src/lists.erl",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 176
+  },
+  %{
+    module: "Elixir.ArchivePath.Fixed",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/archive_path/lib/fixed.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 266
+  },
+  %{
+    module: "Elixir.ArchivePath.Laws",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/archive_path/lib/laws.ex",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 197
+  },
+  %{
+    module: "Erlang.postlude",
+    status: :ok,
+    file: "/scratch/work/proof/validator/lemmas.lean",
+    cached: false,
+    theorems: [],
+    diagnostics: [],
+    time_ms: 906
+  },
+  %{
+    module: "Elixir.ArchivePath.Laws.laws",
+    status: :ok,
+    file: "/scratch/work/test/fixtures/projects/archive_path/lib/laws.ex",
+    cached: false,
+    theorems: [
+      %{name: "binary_contract/1", time_ms: 41},
+      %{name: "nonbinary_wrapper/1", time_ms: 1}
+    ],
+    diagnostics: [],
+    time_ms: 187
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "lib/pudding/contracts/path_policy.ex": "ce441a804adfa0e91b2cb26b707408db7ae1921d573ed5e76edae8b74af5d8b5",
+  "test/fixtures/projects/archive_path/lib/laws.ex": "0d546bddbcdc816dc3bfddfe4bc25358433775e0d8b992faa4a93510978806a5",
+  "test/fixtures/projects/archive_path/lib/fixed.ex": "0eadbee800af4aafefb3e4fab967a19ae4eb90ae013e1e5ae865de46b47e7403",
+  "test/fixtures/projects/archive_path/lib/vulnerable.ex": "946c9b1a3ac4f4bbd1e0fbc75d99a0c92c792ef944c2aa32038d022b6fa9f660",
+  "proof/validator/lemmas.lean": "920c36f587cd651f6c5359acbf490f36ef3b5d475fb2d70d1de536eedb44585b"
+}

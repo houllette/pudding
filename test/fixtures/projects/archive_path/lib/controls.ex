@@ -46,3 +46,16 @@ defmodule ArchivePath.StrongerPreconditionLaws do
     expects: ArchivePath.Vulnerable.validate(input) === PathPolicy.expected(input)
   )
 end
+
+defmodule ArchivePath.AdmittedLaws do
+  @moduledoc "Forbidden transitive-axiom control, never a valid proof."
+  use Lynx.Laws
+
+  law(admitted,
+    expects: false,
+    proof: ~LEAN"""
+    have false_helper : False := by sorry
+    exact False.elim false_helper
+    """
+  )
+end
